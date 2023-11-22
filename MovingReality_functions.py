@@ -110,20 +110,20 @@ def corresponding_filenames(**kwargs):
     triallist = dict()
     
     # 1019_pp01
-    triallist['1019_MR001'] = ['1019_MR001_230118_1Reg.c3d', '1019_MR001_230118_FBIC.c3d', '1019_MR001_230118_FBPO.c3d', '1019_MR001_230118_2FB.c3d', '1019_MR001_230118_2Reg.c3d']
-    corresponding_files['1019_MR001_230118_1Reg.c3d'] = 'exported000'
-    corresponding_files['1019_MR001_230118_FBIC.c3d'] = 'exported006'
-    corresponding_files['1019_MR001_230118_FBPO.c3d'] = 'exported001'
-    corresponding_files['1019_MR001_230118_2FB.c3d'] = 'exported003'
-    corresponding_files['1019_MR001_230118_2Reg.c3d'] = 'exported007'
+    triallist['1019_MR001'] = ['1019_MR001_1Reg.c3d', '1019_MR001_FBIC.c3d', '1019_MR001_FBPO.c3d', '1019_MR001_2FB.c3d', '1019_MR001_2Reg.c3d']
+    corresponding_files['1019_MR001_1Reg.c3d'] = 'exported000'
+    corresponding_files['1019_MR001_FBIC.c3d'] = 'exported006'
+    corresponding_files['1019_MR001_FBPO.c3d'] = 'exported001'
+    corresponding_files['1019_MR001_2FB.c3d'] = 'exported003'
+    corresponding_files['1019_MR001_2Reg.c3d'] = 'exported007'
     
     # 1019_pp02
-    triallist['1019_MR002'] = ['1019_MR002_2303081Reg.c3d', '1019_MR002_2303081FBIC.c3d', '1019_MR002_2303081FBPO.c3d', '1019_MR002_23030812FB.c3d', '1019_MR002_2303082FB.c3d']
-    corresponding_files['1019_MR002_2303081Reg.c3d'] = 'exported000'
-    corresponding_files['1019_MR002_2303081FBIC.c3d'] = 'exported001'
-    corresponding_files['1019_MR002_2303081FBPO.c3d'] = 'exported002'
-    corresponding_files['1019_MR002_23030812FB.c3d'] = 'exported003'
-    corresponding_files['1019_MR002_2303082FB.c3d'] = 'exported004' # Is the second trial without feedback (2Reg)
+    triallist['1019_MR002'] = ['1019_MR002_Reg.c3d', '1019_MR002_FBIC.c3d', '1019_MR002_FBPO.c3d', '1019_MR002_2FB.c3d', '1019_MR002_2Reg.c3d']
+    corresponding_files['1019_MR002_Reg.c3d'] = 'exported000'
+    corresponding_files['1019_MR002_FBIC.c3d'] = 'exported001'
+    corresponding_files['1019_MR002_FBPO.c3d'] = 'exported002'
+    corresponding_files['1019_MR002_2FB.c3d'] = 'exported003'
+    corresponding_files['1019_MR002_2Reg.c3d'] = 'exported004'
     
     # 1019_pp03
     triallist['1019_MR003'] = ['1019_MR003_230333_1Reg02.c3d', '1019_MR003_230333_FBIC.c3d', '1019_MR003_230333_FBPO.c3d', '1019_MR003_230333_2FB.c3d','1019_MR003_230333_2Reg02.c3d']
