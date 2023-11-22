@@ -126,84 +126,84 @@ def corresponding_filenames(**kwargs):
     corresponding_files['1019_MR002_2Reg.c3d'] = 'exported004'
     
     # 1019_pp03
-    triallist['1019_MR003'] = ['1019_MR003_230333_1Reg02.c3d', '1019_MR003_230333_FBIC.c3d', '1019_MR003_230333_FBPO.c3d', '1019_MR003_230333_2FB.c3d','1019_MR003_230333_2Reg02.c3d']
-    corresponding_files['1019_MR003_230333_1Reg02.c3d'] = 'exported002'
-    corresponding_files['1019_MR003_230333_FBPO.c3d'] = 'exported003'
-    corresponding_files['1019_MR003_230333_FBIC.c3d'] = '' # Xsens recording error
-    corresponding_files['1019_MR003_230333_2FB.c3d'] = 'exported005'
-    corresponding_files['1019_MR003_230333_2Reg02.c3d'] = 'exported006'
+    triallist['1019_MR003'] = ['1019_MR003_1Reg02.c3d', '1019_MR003_FBIC.c3d', '1019_MR003_FBPO.c3d', '1019_MR003_2FB.c3d','1019_MR003_2Reg02.c3d']
+    corresponding_files['1019_MR003_1Reg02.c3d'] = 'exported002'
+    corresponding_files['1019_MR003_FBPO.c3d'] = 'exported003'
+    corresponding_files['1019_MR003_FBIC.c3d'] = '' # Xsens recording error
+    corresponding_files['1019_MR003_2FB.c3d'] = 'exported005'
+    corresponding_files['1019_MR003_2Reg02.c3d'] = 'exported006'
 
     # 1019_pp04
-    triallist['1019_MR004'] = ['1019_MR004_230322_1Reg.c3d', '1019_MR004_230322_FBIC.c3d', '1019_MR004_230322_FBPO.c3d', '1019_MR004_230322_2FB.c3d','1019_MR004_230322_2Reg02.c3d']
-    corresponding_files['1019_MR004_230322_1Reg.c3d'] = 'exported000'
-    corresponding_files['1019_MR004_230322_FBIC.c3d'] = 'exported001'
-    corresponding_files['1019_MR004_230322_FBPO.c3d'] = 'exported002'
-    corresponding_files['1019_MR004_230322_2FB.c3d'] = 'exported003'
-    corresponding_files['1019_MR004_230322_2Reg02.c3d'] = 'exported004'
+    triallist['1019_MR004'] = ['1019_MR004_1Reg.c3d', '1019_MR004_FBIC.c3d', '1019_MR004_FBPO.c3d', '1019_MR004_2FB.c3d','1019_MR004_2Reg02.c3d']
+    corresponding_files['1019_MR004_1Reg.c3d'] = 'exported000'
+    corresponding_files['1019_MR004_FBIC.c3d'] = 'exported001'
+    corresponding_files['1019_MR004_FBPO.c3d'] = 'exported002'
+    corresponding_files['1019_MR004_2FB.c3d'] = 'exported003'
+    corresponding_files['1019_MR004_2Reg02.c3d'] = 'exported004'
 
     # 1019_pp05
-    triallist['1019_MR005'] = ['1019_MR005_230411_1Reg01.c3d', '1019_MR005_230411_FBIC.c3d', '1019_MR005_230411_FBPO.c3d', '1019_MR005_230411_2FB.c3d', '1019_MR005_230411_2Reg.c3d']
-    corresponding_files['1019_MR005_230411_1Reg01.c3d'] = 'exported001'
-    corresponding_files['1019_MR005_230411_FBIC.c3d'] = 'exported003'
-    corresponding_files['1019_MR005_230411_FBPO.c3d'] = 'exported002'
-    corresponding_files['1019_MR005_230411_2FB.c3d'] = 'exported004'
-    corresponding_files['1019_MR005_230411_2Reg.c3d'] = 'exported005'
+    triallist['1019_MR005'] = ['1019_MR005_1Reg01.c3d', '1019_MR005_FBIC.c3d', '1019_MR005_FBPO.c3d', '1019_MR005_2FB.c3d', '1019_MR005_2Reg.c3d']
+    corresponding_files['1019_MR005_1Reg01.c3d'] = 'exported001'
+    corresponding_files['1019_MR005_FBIC.c3d'] = 'exported003'
+    corresponding_files['1019_MR005_FBPO.c3d'] = 'exported002'
+    corresponding_files['1019_MR005_2FB.c3d'] = 'exported004'
+    corresponding_files['1019_MR005_2Reg.c3d'] = 'exported005'
     
     # 1019_pp06
-    triallist['1019_MR006'] = ['1019_MR006_230307_1Reg.c3d', '1019_MR006_230307_FBPO.c3d', '1019_MR006_230307_2FB.c3d', '1019_MR006_230307_2Reg02.c3d']
-    corresponding_files['1019_MR006_230307_1Reg.c3d'] = 'exported001'
-    # corresponding_files['1019_MR006_230307_FBIC.c3d'] = 'exported002' # Vicon data not of good quality; no sufficient gold-standard
-    corresponding_files['1019_MR006_230307_FBPO.c3d'] = 'exported003'
-    corresponding_files['1019_MR006_230307_2FB.c3d'] = 'exported004'
-    corresponding_files['1019_MR006_230307_2Reg02.c3d'] = '' # Xsens recording error
+    triallist['1019_MR006'] = ['1019_MR006_1Reg.c3d', '1019_MR006_FBPO.c3d', '1019_MR006_2FB.c3d', '1019_MR006_2Reg02.c3d']
+    corresponding_files['1019_MR006_1Reg.c3d'] = 'exported001'
+    # corresponding_files['1019_MR006_FBIC.c3d'] = 'exported002' # Vicon data not of good quality; no sufficient gold-standard
+    corresponding_files['1019_MR006_FBPO.c3d'] = 'exported003'
+    corresponding_files['1019_MR006_2FB.c3d'] = 'exported004'
+    corresponding_files['1019_MR006_2Reg02.c3d'] = '' # Xsens recording error
     
     # 1019_pp07
-    triallist['1019_MR007'] = ['1019_MR007_230329_1Reg02.c3d', '1019_MR007_230329_FBIC.c3d', '1019_MR007_230329_FBPO.c3d', '1019_MR007_230329_2FB.c3d', '1019_MR007_230329_2Reg.c3d']
-    corresponding_files['1019_MR007_230329_1Reg02.c3d'] = 'exported000'
-    corresponding_files['1019_MR007_230329_FBIC.c3d'] = 'exported002'
-    corresponding_files['1019_MR007_230329_FBPO.c3d'] = 'exported001'
-    corresponding_files['1019_MR007_230329_2FB.c3d'] = 'exported003'
-    corresponding_files['1019_MR007_230329_2Reg.c3d'] = 'exported004'
+    triallist['1019_MR007'] = ['1019_MR007_1Reg02.c3d', '1019_MR007_FBIC.c3d', '1019_MR007_FBPO.c3d', '1019_MR007_2FB.c3d', '1019_MR007_2Reg.c3d']
+    corresponding_files['1019_MR007_1Reg02.c3d'] = 'exported000'
+    corresponding_files['1019_MR007_FBIC.c3d'] = 'exported002'
+    corresponding_files['1019_MR007_FBPO.c3d'] = 'exported001'
+    corresponding_files['1019_MR007_2FB.c3d'] = 'exported003'
+    corresponding_files['1019_MR007_2Reg.c3d'] = 'exported004'
     
     # 1019_pp08
-    triallist['1019_MR008'] = ['1019_MR008_230511_1Reg02.c3d', '1019_MR008_230511_FBIC.c3d', '1019_MR008_230511_FBPO02.c3d', '1019_MR008_230511_2FB.c3d', '1019_MR008_230511_2Reg.c3d']
-    corresponding_files['1019_MR008_230511_1Reg02.c3d'] = 'exported001'
-    corresponding_files['1019_MR008_230511_FBIC.c3d'] = 'exported004'
-    corresponding_files['1019_MR008_230511_FBPO02.c3d'] = 'exported005'
-    corresponding_files['1019_MR008_230511_2FB.c3d'] = 'exported006'
-    corresponding_files['1019_MR008_230511_2Reg.c3d'] = 'exported007'
+    triallist['1019_MR008'] = ['1019_MR008_1Reg02.c3d', '1019_MR008_FBIC.c3d', '1019_MR008_FBPO02.c3d', '1019_MR008_2FB.c3d', '1019_MR008_2Reg.c3d']
+    corresponding_files['1019_MR008_1Reg02.c3d'] = 'exported001'
+    corresponding_files['1019_MR008_FBIC.c3d'] = 'exported004'
+    corresponding_files['1019_MR008_FBPO02.c3d'] = 'exported005'
+    corresponding_files['1019_MR008_2FB.c3d'] = 'exported006'
+    corresponding_files['1019_MR008_2Reg.c3d'] = 'exported007'
     
     # 1019_pp09
-    triallist['1019_MR009'] = ['1019_MR009_2306151Reg.c3d', '1019_MR009_230615FBIC.c3d', '1019_MR009_230615FBPO.c3d', '1019_MR009_2306152FB.c3d', '1019_MR009_2306152Reg.c3d']
-    corresponding_files['1019_MR009_2306151Reg.c3d'] = 'exported000'
-    corresponding_files['1019_MR009_230615FBIC.c3d'] = 'exported002'
-    corresponding_files['1019_MR009_230615FBPO.c3d'] = 'exported001'
-    corresponding_files['1019_MR009_2306152FB.c3d'] = 'exported003'
-    corresponding_files['1019_MR009_2306152Reg.c3d'] = 'exported004'
+    triallist['1019_MR009'] = ['1019_MR009_1Reg.c3d', '1019_MR009_FBIC.c3d', '1019_MR009_FBPO.c3d', '1019_MR009_2FB.c3d', '1019_MR009_2Reg.c3d']
+    corresponding_files['1019_MR009_1Reg.c3d'] = 'exported000'
+    corresponding_files['1019_MR009_FBIC.c3d'] = 'exported002'
+    corresponding_files['1019_MR009_FBPO.c3d'] = 'exported001'
+    corresponding_files['1019_MR009_2FB.c3d'] = 'exported003'
+    corresponding_files['1019_MR009_2Reg.c3d'] = 'exported004'
     
     # 1019_pp10
-    triallist['1019_MR010'] = ['1019_MR010_230711_1Reg.c3d', '1019_MR010_230711_FBIC.c3d', '1019_MR010_230711_FBPO.c3d', '1019_MR010_230711_2FB.c3d', '1019_MR010_230711_2Reg.c3d']
-    corresponding_files['1019_MR010_230711_1Reg.c3d'] = 'exported000'
-    corresponding_files['1019_MR010_230711_FBIC.c3d'] = 'exported001'
-    corresponding_files['1019_MR010_230711_FBPO.c3d'] = 'exported002'
-    corresponding_files['1019_MR010_230711_2FB.c3d'] = 'exported003'
-    corresponding_files['1019_MR010_230711_2Reg.c3d'] = 'exported004'
+    triallist['1019_MR010'] = ['1019_MR010_1Reg.c3d', '1019_MR010_FBIC.c3d', '1019_MR010_FBPO.c3d', '1019_MR010_2FB.c3d', '1019_MR010_2Reg.c3d']
+    corresponding_files['1019_MR010_1Reg.c3d'] = 'exported000'
+    corresponding_files['1019_MR010_FBIC.c3d'] = 'exported001'
+    corresponding_files['1019_MR010_FBPO.c3d'] = 'exported002'
+    corresponding_files['1019_MR010_2FB.c3d'] = 'exported003'
+    corresponding_files['1019_MR010_2Reg.c3d'] = 'exported004'
     
     # 1019_pp11
-    triallist['1019_MR011'] = ['1019_MR011_230717_1Reg.c3d', '1019_MR011_230717_FBIC.c3d', '1019_MR011_230717_FBPO.c3d', '1019_MR011_230717_2FB.c3d', '1019_MR011_230717_2Reg.c3d']
-    corresponding_files['1019_MR011_230717_1Reg.c3d'] = 'exported000'
-    corresponding_files['1019_MR011_230717_FBIC.c3d'] = 'exported002'
-    corresponding_files['1019_MR011_230717_FBPO.c3d'] = 'exported001'
-    corresponding_files['1019_MR011_230717_2FB.c3d'] = 'exported003'
-    corresponding_files['1019_MR011_230717_2Reg.c3d'] = 'exported004'
+    triallist['1019_MR011'] = ['1019_MR011_1Reg.c3d', '1019_MR011_FBIC.c3d', '1019_MR011_FBPO.c3d', '1019_MR011_2FB.c3d', '1019_MR011_2Reg.c3d']
+    corresponding_files['1019_MR011_1Reg.c3d'] = 'exported000'
+    corresponding_files['1019_MR011_FBIC.c3d'] = 'exported002'
+    corresponding_files['1019_MR011_FBPO.c3d'] = 'exported001'
+    corresponding_files['1019_MR011_2FB.c3d'] = 'exported003'
+    corresponding_files['1019_MR011_2Reg.c3d'] = 'exported004'
     
     # 1019_pp12
-    triallist['1019_MR012'] = ['1019_MR012_230726_1Reg.c3d', '1019_MR012_230726_FBIC.c3d', '1019_MR012_230726_FBPO.c3d', '1019_MR012_230726_2FB.c3d', '1019_MR012_230726_2Reg.c3d']
-    corresponding_files['1019_MR012_230726_1Reg.c3d'] = 'exported000'
-    corresponding_files['1019_MR012_230726_FBIC.c3d'] = 'exported001'
-    corresponding_files['1019_MR012_230726_FBPO.c3d'] = 'exported002'
-    corresponding_files['1019_MR012_230726_2FB.c3d'] = 'exported003'
-    corresponding_files['1019_MR012_230726_2Reg.c3d'] = 'exported004'
+    triallist['1019_MR012'] = ['1019_MR012_1Reg.c3d', '1019_MR012_FBIC.c3d', '1019_MR012_FBPO.c3d', '1019_MR012_2FB.c3d', '1019_MR012_2Reg.c3d']
+    corresponding_files['1019_MR012_1Reg.c3d'] = 'exported000'
+    corresponding_files['1019_MR012_FBIC.c3d'] = 'exported001'
+    corresponding_files['1019_MR012_FBPO.c3d'] = 'exported002'
+    corresponding_files['1019_MR012_2FB.c3d'] = 'exported003'
+    corresponding_files['1019_MR012_2Reg.c3d'] = 'exported004'
         
     return corresponding_files, triallist
 

@@ -3,7 +3,7 @@ The data folder has the following structure:
 - 1019_pp## (folder for participant based on study ID)
 	- Vicon (folder with vicon, gold standard, data)
 		*.c3d file for each trial. Trialnames have te following configuration:
-			1019_MR**studyIDnumber**_**measurementdate**_**trialtype**.c3d*
+			1019_MR**studyIDnumber**_**trialtype**.c3d*
 		*trialtypes: 
 			1Reg: First trial regular walking
 			FBIC: Feedback on initial contact angle

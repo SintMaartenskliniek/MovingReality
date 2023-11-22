@@ -1,32 +1,20 @@
-# -*- coding: utf-8 -*-
 """
 Main script for:
-    1019 Moving(g) Reality, feedback study, validation of foot strike angle and
-    identification of a proxi for forward propulsion.
+    1019 Moving(g) Reality project, validation of foot strike angle and
+    identification of an inidcator for forward propulsion.
     
-Version - Author:
-    09-10-2023 Update script according to updated calculation of propulsive force - C.J. Ensink
-    02-10-2023 Calculate repeatability coefficient - C.J. Ensink
-    24-08-2023 Clean up for publication - C.J. Ensink
-    02-08-2023 Only analyze 120 seconds of all trials - C.J. Ensink
-    18-07-2023 Check correlation propulsion with stride length - C.J. Ensink
-    21-06-2023 Updated dependencies - C.J Ensink
-    17-05-2023 Debugged calculation of propulsion (only negative area under the curve) - C.J. Ensink
-    28-03-2023 Check kinematics and correct propulsion based on Hafer et al. (2020) for study data - C.J. Ensink
-    20-12-2022 Check correlation propulsion and kinematics for pilot data - C.J. Ensink
-    31-05-2022 Check correlation propulsion and kinematics for all CVA data 0900 - Smarten the clinic, validation study - C.J. Ensink
-    06-04-2022 Check correlation propulsion and kinematics - C.J. Ensink
-    15-02-2022 Initial script - C.J. Ensink, c.ensink@maartenskliniek.nl
+2023, Carmen Ensink, Sint Maartenksliniek,
+c.ensink@maartenskliniek.nl
 
 """
 
 # Import dependencies
 # To run this script you need to pull the following repositories:
-#    To import and analyze OMCS data: https://github.com/SintMaartenskliniek/OMCS_GaitAnalysis
-#    To import and analyze IMU data: https://github.com/SintMaartenskliniek/IMU_GaitAnalysis
+#    To import and analyze OMCS data: https://github.com/SintMaartenskliniek/OMCS_GaitAnalysis (Release: version 1.2.0, tag v1.2.0)
+#    To import and analyze IMU data: https://github.com/SintMaartenskliniek/IMU_GaitAnalysis (Release: Validation study, tag v1.1.0)
 import sys
-sys.path.insert(0, 'C:/Users/ensinkc.SMK/OneDrive - Sint Maartenskliniek/Documents/GitHub/SMK_IMU_GaitAnalysis')
-sys.path.insert(0, 'C:/Users/ensinkc.SMK/OneDrive - Sint Maartenskliniek/Documents/GitHub/OMCS_GaitAnalysis')
+sys.path.insert(0, '/IMU_GaitAnalysis')
+sys.path.insert(0, '/OMCS_GaitAnalysis')
 
 import matplotlib.pyplot as plt
 import matplotlib.colors as pltcolors
