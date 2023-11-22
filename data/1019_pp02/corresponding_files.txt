@@ -1,0 +1,6 @@
+1019_MR002_2303081Reg.c3d = exported000
+1019_MR002_2303081FBIC.c3d'] = exported001
+1019_MR002_2303081FBPO.c3d'] = exported002
+1019_MR002_23030812FB.c3d'] = exported003
+1019_MR002_2303082FB.c3d'] = exported004 # Is the second trial without feedback
+            
