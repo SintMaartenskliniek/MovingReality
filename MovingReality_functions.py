@@ -615,7 +615,7 @@ def bland_altman_plot(data1, data2, *args, **kwargs):
             alpha = value
     
     fig = plt.subplots()
-    # plt.title('Bland-Altman plot   -   ' + dataType, fontsize=20)
+    plt.title('Bland-Altman analysis, ' + dataType, fontsize=20)
     
     plt.scatter(mean, diff, edgecolor = 'none', facecolor='black', alpha=alpha, marker = 'o') # SMK green: '#004D43'
     

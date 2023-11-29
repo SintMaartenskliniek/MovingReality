@@ -211,7 +211,7 @@ icc = pingouin.intraclass_corr(data=icc_df, targets='strideID', raters='system',
 icc.set_index("Type")
 
 # Bland-Altman analysis FSA xsens vs vicon
-bland_altman_plot(pcc_ICangle_xsens, pcc_ICangle_vicon) #dataType='Initial contact angle', unit='(deg)'
+bland_altman_plot(pcc_ICangle_xsens, pcc_ICangle_vicon, dataType='FSA stride-by-stride level')#, unit='(deg)'
 
 # Repeatability coefficient
 # https://rowannicholls.github.io/python/statistics/agreement/repeatability_coefficient.html
@@ -318,7 +318,7 @@ for person in data_per_person:
     mas = np.nanmean(data_per_person[person]['Xsens'])
     BA_acrossSubjects_xsens = np.append(BA_acrossSubjects_xsens, mas)
 
-bland_altman_plot(BA_acrossSubjects_xsens, BA_acrossSubjects_vicon, alpha=1) #, dataType='Initial contact angle across subjects', unit='(deg)'
+bland_altman_plot(BA_acrossSubjects_xsens, BA_acrossSubjects_vicon, alpha=1, dataType='FSA participant average level')#, unit='(deg)'
 
 # Repeatability coefficient
 # https://rowannicholls.github.io/python/statistics/agreement/repeatability_coefficient.html
