@@ -1,10 +1,9 @@
-# -*- coding: utf-8 -*-
 """
 Function script for:
     1019 Moving(g) Reality, feedback study
     
 Version - Author:
-    24-08-2023 - C.J. Ensink, c.ensink@maartenskliniek.nl
+    C.J. Ensink, c.ensink@maartenskliniek.nl
 
 """
 
@@ -101,6 +100,30 @@ def person_characteristics(**kwargs):
     comfortable_gait_speed['1019_MR012'] =  1.1
 
     return bodyweight, height, age, time_since_stroke, comfortable_gait_speed
+
+
+
+def group_trialorder(**kwargs):
+    # Trialorder PO group: 1Reg - FPPO - FPIC - 2FB - 2Reg
+    # Trialorder FSA group: 1Reg - FPIC - FPPO - 2FB - 2Reg
+
+    group=dict()
+    group['1019_MR001']='FSA'
+    group['1019_MR003']='FSA'
+    group['1019_MR005']='FSA'
+    group['1019_MR007']='FSA'
+    group['1019_MR008']='FSA'
+    group['1019_MR009']='FSA'
+    group['1019_MR011']='FSA'
+    group['1019_MR002']='PO'
+    group['1019_MR004']='PO'
+    group['1019_MR006']='PO'
+    group['1019_MR010']='PO'
+    group['1019_MR012']='PO'
+    # group['FSA']=list(['1019_MR001', '1019_MR003', '1019_MR005', '1019_MR007', '1019_MR008', '1019_MR009', '1019_MR011'])
+    # group['PO']=list(['1019_MR002', '1019_MR004', '1019_MR006', '1019_MR010', '1019_MR012'])
+    
+    return group
 
 
 
