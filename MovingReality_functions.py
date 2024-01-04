@@ -189,10 +189,10 @@ def corresponding_filenames(**kwargs):
     corresponding_files['1019_MR007_2Reg.c3d'] = 'exported004'
     
     # 1019_pp08
-    triallist['1019_MR008'] = ['1019_MR008_1Reg02.c3d', '1019_MR008_FBIC.c3d', '1019_MR008_FBPO02.c3d', '1019_MR008_2FB.c3d', '1019_MR008_2Reg.c3d']
+    triallist['1019_MR008'] = ['1019_MR008_1Reg02.c3d', '1019_MR008_FBIC.c3d', '1019_MR008_FBPO.c3d', '1019_MR008_2FB.c3d', '1019_MR008_2Reg.c3d']
     corresponding_files['1019_MR008_1Reg02.c3d'] = 'exported001'
     corresponding_files['1019_MR008_FBIC.c3d'] = 'exported004'
-    corresponding_files['1019_MR008_FBPO02.c3d'] = 'exported005'
+    corresponding_files['1019_MR008_FBPO.c3d'] = 'exported005'
     corresponding_files['1019_MR008_2FB.c3d'] = 'exported006'
     corresponding_files['1019_MR008_2Reg.c3d'] = 'exported007'
     
