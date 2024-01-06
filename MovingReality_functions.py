@@ -1,8 +1,9 @@
+# -*- coding: utf-8 -*-
 """
 Function script for:
     1019 Moving(g) Reality, feedback study
     
-Version - Author:
+Author:
     C.J. Ensink, c.ensink@maartenskliniek.nl
 
 """
@@ -149,12 +150,12 @@ def corresponding_filenames(**kwargs):
     corresponding_files['1019_MR002_2Reg.c3d'] = 'exported004'
     
     # 1019_pp03
-    triallist['1019_MR003'] = ['1019_MR003_1Reg02.c3d', '1019_MR003_FBIC.c3d', '1019_MR003_FBPO.c3d', '1019_MR003_2FB.c3d','1019_MR003_2Reg02.c3d']
+    triallist['1019_MR003'] = ['1019_MR003_1Reg02.c3d', '1019_MR003_FBIC.c3d', '1019_MR003_FBPO.c3d', '1019_MR003_2FB.c3d','1019_MR003_2Reg.c3d']
     corresponding_files['1019_MR003_1Reg02.c3d'] = 'exported002'
     corresponding_files['1019_MR003_FBPO.c3d'] = 'exported003'
     corresponding_files['1019_MR003_FBIC.c3d'] = '' # Xsens recording error
     corresponding_files['1019_MR003_2FB.c3d'] = 'exported005'
-    corresponding_files['1019_MR003_2Reg02.c3d'] = 'exported006'
+    corresponding_files['1019_MR003_2Reg.c3d'] = 'exported006'
 
     # 1019_pp04
     triallist['1019_MR004'] = ['1019_MR004_1Reg.c3d', '1019_MR004_FBIC.c3d', '1019_MR004_FBPO.c3d', '1019_MR004_2FB.c3d','1019_MR004_2Reg02.c3d']
@@ -679,8 +680,8 @@ def calculate_indicative_variables(vicon_gait_events, vicon_spatiotemporals, xse
         HSL = vicon_gait_events[trial]['Index numbers initial contact left']
         
         for i in range(len(vicon_spatiotemporals[trial]['Propulsion left'])):
-            stance_start = int( HSL[ HSL <= vicon_spatiotemporals[trial]['Propulsion left'][i,0]+10 ][-1] )
-            stance_stop = int( TOL[ TOL >= vicon_spatiotemporals[trial]['Propulsion left'][i,1]-10 ][0] )
+            stance_start = int( HSL[ HSL <= vicon_spatiotemporals[trial]['Propulsion left'][i,0]+11 ][-1] )
+            stance_stop = int( TOL[ TOL >= vicon_spatiotemporals[trial]['Propulsion left'][i,1]-11 ][0] )
             foot_vicon[trial]['Angle at TC left'][i] = foot_vicon[trial]['Angle left filt'][stance_stop]
             shank_vicon[trial]['Angle at TC left'][i] = shank_vicon[trial]['Angle left'][stance_stop]
             foot_vicon[trial]['Max angular velocity stance phase left'][i] = np.nanmax(foot_vicon[trial]['Angular velocity left'][ stance_start : stance_stop])
@@ -706,8 +707,8 @@ def calculate_indicative_variables(vicon_gait_events, vicon_spatiotemporals, xse
         HSR = vicon_gait_events[trial]['Index numbers initial contact right']
         for i in range(len(vicon_spatiotemporals[trial]['Propulsion right'])):
             
-            stance_start = int( HSR[ HSR <= vicon_spatiotemporals[trial]['Propulsion right'][i,0]+10 ][-1] )
-            stance_stop = int( TOR[ TOR >= vicon_spatiotemporals[trial]['Propulsion right'][i,1]-10 ][0] )
+            stance_start = int( HSR[ HSR <= vicon_spatiotemporals[trial]['Propulsion right'][i,0]+11 ][-1] )
+            stance_stop = int( TOR[ TOR >= vicon_spatiotemporals[trial]['Propulsion right'][i,1]-11 ][0] )
             foot_vicon[trial]['Angle at TC right'][i] = foot_vicon[trial]['Angle right filt'][stance_stop]
             shank_vicon[trial]['Angle at TC right'][i] = shank_vicon[trial]['Angle right'][stance_stop]
             foot_vicon[trial]['Max angular velocity stance phase right'][i] = np.nanmax(foot_vicon[trial]['Angular velocity right'][ stance_start : stance_stop])
@@ -736,8 +737,8 @@ def calculate_indicative_variables(vicon_gait_events, vicon_spatiotemporals, xse
         HSL = xsens[trial]['Left foot']['Gait Events']['Initial Contact']
         for i in range(len(vicon_spatiotemporals[trial]['Propulsion left'])):
             
-            stance_start = int( HSL[ HSL <= vicon_spatiotemporals[trial]['Propulsion left'][i,0]+10 ][-1] )
-            stance_stop = int( TOL[ TOL >= vicon_spatiotemporals[trial]['Propulsion left'][i,1]-10 ][0] )
+            stance_start = int( HSL[ HSL <= vicon_spatiotemporals[trial]['Propulsion left'][i,0]+11 ][-1] )
+            stance_stop = int( TOL[ TOL >= vicon_spatiotemporals[trial]['Propulsion left'][i,1]-11 ][0] )
             foot_xsens[trial]['Angle at TC left'][i] = foot_xsens[trial]['Angle left'][stance_stop]
             shank_xsens[trial]['Angle at TC left'][i] = shank_xsens[trial]['Angle left'][stance_stop]
             foot_xsens[trial]['Max angular velocity stance phase left'][i] = np.nanmax(foot_xsens[trial]['Angular velocity left'][ stance_start : stance_stop])
@@ -765,8 +766,8 @@ def calculate_indicative_variables(vicon_gait_events, vicon_spatiotemporals, xse
         HSR = xsens[trial]['Right foot']['Gait Events']['Initial Contact']
         for i in range(len(vicon_spatiotemporals[trial]['Propulsion right'])):
             
-            stance_start = int( HSR[ HSR <= vicon_spatiotemporals[trial]['Propulsion right'][i,0]+10 ][-1] )
-            stance_stop = int( TOR[ TOR >= vicon_spatiotemporals[trial]['Propulsion right'][i,1]-10 ][0] )
+            stance_start = int( HSR[ HSR <= vicon_spatiotemporals[trial]['Propulsion right'][i,0]+11 ][-1] )
+            stance_stop = int( TOR[ TOR >= vicon_spatiotemporals[trial]['Propulsion right'][i,1]-11 ][0] )
             foot_xsens[trial]['Angle at TC right'][i] = foot_xsens[trial]['Angle right'][stance_stop]
             shank_xsens[trial]['Angle at TC right'][i] = shank_xsens[trial]['Angle right'][stance_stop]
             foot_xsens[trial]['Max angular velocity stance phase right'][i] = np.nanmax(foot_xsens[trial]['Angular velocity right'][ stance_start : stance_stop])
@@ -847,7 +848,7 @@ def transform_pcc_input_variables_all(vicon_spatiotemporals, foot_vicon, shank_v
         pcc_foot_stridelength_xsens = np.append(pcc_foot_stridelength_xsens, foot_xsens[trial]['Stride length right'])
         
     
-    return pcc_propulsion[~np.isnan(pcc_propulsion)], pcc_propulsion_peak, pcc_foot_angleTC_vicon[~np.isnan(pcc_propulsion)], pcc_shank_angleTC_vicon[~np.isnan(pcc_propulsion)], pcc_foot_maxangvel_vicon[~np.isnan(pcc_propulsion)], pcc_shank_maxangvel_vicon[~np.isnan(pcc_propulsion)], pcc_foot_maxangacc_vicon[~np.isnan(pcc_propulsion)], pcc_shank_maxangacc_vicon[~np.isnan(pcc_propulsion)], pcc_shank_maxlinacc_vicon[~np.isnan(pcc_propulsion)], pcc_foot_stridelength_vicon[~np.isnan(pcc_propulsion)], pcc_foot_angleTC_xsens[~np.isnan(pcc_propulsion)], pcc_shank_angleTC_xsens[~np.isnan(pcc_propulsion)], pcc_foot_maxangvel_xsens[~np.isnan(pcc_propulsion)], pcc_shank_maxangvel_xsens[~np.isnan(pcc_propulsion)], pcc_foot_maxangacc_xsens[~np.isnan(pcc_propulsion)], pcc_shank_maxangacc_xsens[~np.isnan(pcc_propulsion)], pcc_shank_maxlinacc_xsens[~np.isnan(pcc_propulsion)], pcc_foot_stridelength_xsens[~np.isnan(pcc_propulsion)]
+    return pcc_propulsion[~np.isnan(pcc_propulsion)], pcc_propulsion_peak[~np.isnan(pcc_propulsion_peak)], pcc_foot_angleTC_vicon[~np.isnan(pcc_propulsion)], pcc_shank_angleTC_vicon[~np.isnan(pcc_propulsion)], pcc_foot_maxangvel_vicon[~np.isnan(pcc_propulsion)], pcc_shank_maxangvel_vicon[~np.isnan(pcc_propulsion)], pcc_foot_maxangacc_vicon[~np.isnan(pcc_propulsion)], pcc_shank_maxangacc_vicon[~np.isnan(pcc_propulsion)], pcc_shank_maxlinacc_vicon[~np.isnan(pcc_propulsion)], pcc_foot_stridelength_vicon[~np.isnan(pcc_propulsion)], pcc_foot_angleTC_xsens[~np.isnan(pcc_propulsion)], pcc_shank_angleTC_xsens[~np.isnan(pcc_propulsion)], pcc_foot_maxangvel_xsens[~np.isnan(pcc_propulsion)], pcc_shank_maxangvel_xsens[~np.isnan(pcc_propulsion)], pcc_foot_maxangacc_xsens[~np.isnan(pcc_propulsion)], pcc_shank_maxangacc_xsens[~np.isnan(pcc_propulsion)], pcc_shank_maxlinacc_xsens[~np.isnan(pcc_propulsion)], pcc_foot_stridelength_xsens[~np.isnan(pcc_propulsion)]
     
 
 
@@ -927,15 +928,22 @@ def transform_pcc_input_variables_perPerson(triallist, vicon_spatiotemporals, fo
                 pass
     
     idx_true = dict()
+    idx_true2 = dict()
     for key in pcc_per_person:
         if key == 'propulsion':
             for person in pcc_per_person[key]:
                 idx_true[person] = np.argwhere(~np.isnan(pcc_per_person[key][person])).flatten()
+        if key == 'propulsion peak':
+            for person in pcc_per_person[key]:
+                idx_true2[person] = np.argwhere(~np.isnan(pcc_per_person[key][person])).flatten()
             
     for key in pcc_per_person:
         if key == 'propulsion':
             for person in pcc_per_person[key]:
                 pcc_per_person[key][person] = pcc_per_person[key][person][idx_true[person]]
+        if key == 'propulsion peak':
+            for person in pcc_per_person[key]:
+                pcc_per_person[key][person] = pcc_per_person[key][person][idx_true2[person]]
         if key == 'vicon' or key=='xsens':
             for param in pcc_per_person[key]:
                 if param != 'stride length': 

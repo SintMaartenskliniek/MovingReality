@@ -560,8 +560,8 @@ rho_peakprop_foot_stridelength['all xsens'], pval_peakprop_foot_stridelength['al
 # Calculate Pearon correlation for each trial
 # Vicon
 for trial in foot_vicon:
-    prop_left = vicon_spatiotemporals[trial]['Peak propulsion left'][:,1]
-    prop_right = vicon_spatiotemporals[trial]['Peak propulsion right'][:,1]
+    prop_left = vicon_spatiotemporals[trial]['Peak propulsion left'][:,1][~np.isnan(vicon_spatiotemporals[trial]['Peak propulsion left'][:,1])]
+    prop_right = vicon_spatiotemporals[trial]['Peak propulsion right'][:,1][~np.isnan(vicon_spatiotemporals[trial]['Peak propulsion right'][:,1])]
     rho_peakprop_foot_angleTC[trial+' vicon'], pval_peakprop_foot_angleTC[trial+' vicon'] = stats.pearsonr(np.append(prop_left, prop_right), np.append(foot_vicon[trial]['Angle at TC left'][~np.isnan(vicon_spatiotemporals[trial]['Propulsion left'][:,2])], foot_vicon[trial]['Angle at TC right'][~np.isnan(vicon_spatiotemporals[trial]['Propulsion right'][:,2])]))
     rho_peakprop_shank_angleTC[trial+' vicon'], pval_peakprop_shank_angleTC[trial+' vicon'] = stats.pearsonr(np.append(prop_left, prop_right), np.append(shank_vicon[trial]['Angle at TC left'][~np.isnan(vicon_spatiotemporals[trial]['Propulsion left'][:,2])], shank_vicon[trial]['Angle at TC right'][~np.isnan(vicon_spatiotemporals[trial]['Propulsion right'][:,2])]))
     rho_peakprop_foot_angvel[trial+' vicon'], pval_peakprop_foot_angvel[trial+' vicon'] = stats.pearsonr(np.append(prop_left, prop_right), np.append(foot_vicon[trial]['Max angular velocity stance phase left'][~np.isnan(vicon_spatiotemporals[trial]['Propulsion left'][:,2])], foot_vicon[trial]['Max angular velocity stance phase right'][~np.isnan(vicon_spatiotemporals[trial]['Propulsion right'][:,2])]))
@@ -577,8 +577,8 @@ for trial in foot_vicon:
 
 # Xsens
 for trial in foot_xsens:
-    prop_left = vicon_spatiotemporals[trial]['Peak propulsion left'][:,1]
-    prop_right = vicon_spatiotemporals[trial]['Peak propulsion right'][:,1]
+    prop_left = vicon_spatiotemporals[trial]['Peak propulsion left'][:,1][~np.isnan(vicon_spatiotemporals[trial]['Peak propulsion left'][:,1])]
+    prop_right = vicon_spatiotemporals[trial]['Peak propulsion right'][:,1][~np.isnan(vicon_spatiotemporals[trial]['Peak propulsion right'][:,1])]
     rho_peakprop_foot_angleTC[trial+' xsens'], pval_peakprop_foot_angleTC[trial+' xsens'] = stats.pearsonr(np.append(prop_left, prop_right), np.append(foot_xsens[trial]['Angle at TC left'][~np.isnan(vicon_spatiotemporals[trial]['Propulsion left'][:,2])], foot_xsens[trial]['Angle at TC right'][~np.isnan(vicon_spatiotemporals[trial]['Propulsion right'][:,2])]))
     rho_peakprop_shank_angleTC[trial+' xsens'], pval_peakprop_shank_angleTC[trial+' xsens'] = stats.pearsonr(np.append(prop_left, prop_right), np.append(shank_xsens[trial]['Angle at TC left'][~np.isnan(vicon_spatiotemporals[trial]['Propulsion left'][:,2])], shank_xsens[trial]['Angle at TC right'][~np.isnan(vicon_spatiotemporals[trial]['Propulsion right'][:,2])]))
     rho_peakprop_foot_angvel[trial+' xsens'], pval_peakprop_foot_angvel[trial+' xsens'] = stats.pearsonr(np.append(prop_left, prop_right), np.append(foot_xsens[trial]['Max angular velocity stance phase left'][~np.isnan(vicon_spatiotemporals[trial]['Propulsion left'][:,2])], foot_xsens[trial]['Max angular velocity stance phase right'][~np.isnan(vicon_spatiotemporals[trial]['Propulsion right'][:,2])]))
@@ -645,102 +645,518 @@ for param in rho_per_person_peak['vicon']:
 
 
 
-
+debugplots=True
 match debugplots:
     case True:
         # Correlation scatter for all variables
-        plt_variable = 'Max foot angular velocity'
+        colors = list(['seagreen', 'mediumturquoise', 'mediumblue', 'fuchsia', 'red', 'darkorange', 'gold', 'gray', 'lightgreen', 'deepskyblue', 'palevioletred', 'darkcyan', 'darkorchid'])
+        a = 0.2 # alpha level
+        
+        # AREA UNDER THE CURVE
+        plt_variable = 'Foot angle at terminal contact'
         fig = plt.subplots()
-        plt.title('Correlation scatter '+plt_variable, fontsize=20)
-        plt.scatter(pcc_propulsion, pcc_foot_maxangvel_xsens, edgecolor = 'k', facecolor='None', marker = 'o', label=plt_variable) # SMK green: '#004D43'
-        plt.xlabel("Propulsion", fontsize=14)
+        plt.title('Correlation scatter '+plt_variable+ ' (OMCS-based)', fontsize=20)
+        i=0
+        for person in pcc_per_person['propulsion']:
+            plt.scatter(pcc_per_person['propulsion'][person], pcc_per_person['vicon']['foot angle TC'][person], edgecolor = colors[i], facecolor=colors[i], alpha=a, marker = 'o', label=trial) # SMK green: '#004D43'
+            i+=1
+        # plt.scatter(pcc_propulsion, pcc_foot_maxangvel_xsens, edgecolor = 'k', facecolor='None', marker = 'o', label=plt_variable) # SMK green: '#004D43'
+        plt.xlabel("Propulsion ((N.s)/bodyweight)", fontsize=14)
         plt.xticks(fontsize=14)    
         # set_xticklabels(fontsize=16)
-        plt.ylabel(plt_variable, fontsize=14) #Difference between measures
-        plt.yticks(fontsize=14)
-        # plt.legend(fontsize=10)  
-        
-        
-        plt_variable = 'Max shank angular velocity'
-        fig = plt.subplots()
-        plt.title('Correlation scatter '+plt_variable, fontsize=20)
-        plt.scatter(pcc_propulsion, pcc_shank_maxangvel_xsens, edgecolor = 'k', facecolor='None', marker = 'o', label=plt_variable) # SMK green: '#004D43'
-        plt.xlabel("Propulsion", fontsize=14)
-        plt.xticks(fontsize=14)    
-        # set_xticklabels(fontsize=16)
-        plt.ylabel(plt_variable, fontsize=14) #Difference between measures
-        plt.yticks(fontsize=14)
-        # plt.legend(fontsize=10)  
-        
-        
-        plt_variable = 'Max foot angular acceleration'
-        fig = plt.subplots()
-        plt.title('Correlation scatter '+plt_variable, fontsize=20)
-        plt.scatter(pcc_propulsion, pcc_foot_maxangacc_xsens, edgecolor = 'k', facecolor='None', marker = 'o', label=plt_variable) # SMK green: '#004D43'
-        plt.xlabel("Propulsion", fontsize=14)
-        plt.xticks(fontsize=14)    
-        # set_xticklabels(fontsize=16)
-        plt.ylabel(plt_variable, fontsize=14) #Difference between measures
+        plt.ylabel(plt_variable+' (deg)', fontsize=14) #Difference between measures
         plt.yticks(fontsize=14)
         # plt.legend(fontsize=10)
-        
-        plt_variable = 'Max shank angular acceleration'
-        fig = plt.subplots()
-        plt.title('Correlation scatter '+plt_variable, fontsize=20)
-        plt.scatter(pcc_propulsion, pcc_shank_maxangacc_xsens, edgecolor = 'k', facecolor='None', marker = 'o', label=plt_variable) # SMK green: '#004D43'
-        plt.xlabel("Propulsion", fontsize=14)
-        plt.xticks(fontsize=14)    
-        # set_xticklabels(fontsize=16)
-        plt.ylabel(plt_variable, fontsize=14) #Difference between measures
-        plt.yticks(fontsize=14)
-        # plt.legend(fontsize=10)
-        
         
         plt_variable = 'Foot angle at terminal contact'
         fig = plt.subplots()
-        plt.title('Correlation scatter '+plt_variable, fontsize=20)
-        plt.scatter(pcc_propulsion, pcc_foot_angleTC_xsens, edgecolor = 'k', facecolor='None', marker = 'o', label=plt_variable) # SMK green: '#004D43'
-        plt.scatter(pcc_propulsion, pcc_foot_angleTC_vicon, edgecolor = 'r', facecolor='None', marker = 'o', label=plt_variable) # SMK green: '#004D43'
-        plt.xlabel("Propulsion", fontsize=14)
+        plt.title('Correlation scatter '+plt_variable+ ' (IMU-based)', fontsize=20)
+        i=0
+        for person in pcc_per_person['propulsion']:
+            plt.scatter(pcc_per_person['propulsion'][person], pcc_per_person['xsens']['foot angle TC'][person], edgecolor = colors[i], facecolor=colors[i], alpha=a, marker = 'o', label=trial) # SMK green: '#004D43'
+            i+=1
+        # plt.scatter(pcc_propulsion, pcc_foot_maxangvel_xsens, edgecolor = 'k', facecolor='None', marker = 'o', label=plt_variable) # SMK green: '#004D43'
+        plt.xlabel("Propulsion ((N.s)/bodyweight)", fontsize=14)
         plt.xticks(fontsize=14)    
         # set_xticklabels(fontsize=16)
-        plt.ylabel(plt_variable, fontsize=14) #Difference between measures
+        plt.ylabel(plt_variable+' (deg)', fontsize=14) #Difference between measures
         plt.yticks(fontsize=14)
         # plt.legend(fontsize=10)
+        
         
         
         plt_variable = 'Shank angle at terminal contact'
         fig = plt.subplots()
-        plt.title('Correlation scatter '+plt_variable, fontsize=20)
-        plt.scatter(pcc_propulsion, pcc_shank_angleTC_xsens, edgecolor = 'k', facecolor='None', marker = 'o', label=plt_variable) # SMK green: '#004D43'
-        plt.scatter(pcc_propulsion, pcc_shank_angleTC_vicon, edgecolor = 'r', facecolor='None', marker = 'o', label=plt_variable) # SMK green: '#004D43'
-        plt.xlabel("Propulsion", fontsize=14)
+        plt.title('Correlation scatter '+plt_variable+ ' (OMCS-based)', fontsize=20)
+        i=0
+        for person in pcc_per_person['propulsion']:
+            plt.scatter(pcc_per_person['propulsion'][person], pcc_per_person['vicon']['shank angle TC'][person], edgecolor = colors[i], facecolor=colors[i], alpha=a, marker = 'o', label=trial) # SMK green: '#004D43'
+            i+=1
+        # plt.scatter(pcc_propulsion, pcc_foot_maxangvel_xsens, edgecolor = 'k', facecolor='None', marker = 'o', label=plt_variable) # SMK green: '#004D43'
+        plt.xlabel("Propulsion ((N.s)/bodyweight)", fontsize=14)
+        plt.xticks(fontsize=14)    
+        # set_xticklabels(fontsize=16)
+        plt.ylabel(plt_variable+' (deg)', fontsize=14) #Difference between measures
+        plt.yticks(fontsize=14)
+        # plt.legend(fontsize=10)
+        
+        plt_variable = 'Shank angle at terminal contact'
+        fig = plt.subplots()
+        plt.title('Correlation scatter '+plt_variable+ ' (IMU-based)', fontsize=20)
+        i=0
+        for person in pcc_per_person['propulsion']:
+            plt.scatter(pcc_per_person['propulsion'][person], pcc_per_person['xsens']['shank angle TC'][person], edgecolor = colors[i], facecolor=colors[i], alpha=a, marker = 'o', label=trial) # SMK green: '#004D43'
+            i+=1
+        # plt.scatter(pcc_propulsion, pcc_foot_maxangvel_xsens, edgecolor = 'k', facecolor='None', marker = 'o', label=plt_variable) # SMK green: '#004D43'
+        plt.xlabel("Propulsion ((N.s)/bodyweight)", fontsize=14)
+        plt.xticks(fontsize=14)    
+        # set_xticklabels(fontsize=16)
+        plt.ylabel(plt_variable+' (deg)', fontsize=14) #Difference between measures
+        plt.yticks(fontsize=14)
+        # plt.legend(fontsize=10)
+        
+        
+        
+        plt_variable = 'Max foot angular velocity'
+        fig = plt.subplots()
+        plt.title('Correlation scatter '+plt_variable+ ' (OMCS-based)', fontsize=20)
+        i=0
+        for person in pcc_per_person['propulsion']:
+            plt.scatter(pcc_per_person['propulsion'][person], pcc_per_person['vicon']['foot angular velocity'][person], edgecolor = colors[i], facecolor=colors[i], alpha=a, marker = 'o', label=trial) # SMK green: '#004D43'
+            i+=1
+        # plt.scatter(pcc_propulsion, pcc_foot_maxangvel_xsens, edgecolor = 'k', facecolor='None', marker = 'o', label=plt_variable) # SMK green: '#004D43'
+        plt.xlabel("Propulsion ((N.s)/bodyweight)", fontsize=14)
+        plt.xticks(fontsize=14)    
+        # set_xticklabels(fontsize=16)
+        plt.ylabel(plt_variable, fontsize=14) #Difference between measures
+        plt.yticks(fontsize=14)
+        # plt.legend(fontsize=10)  
+        
+        plt_variable = 'Max foot angular velocity'
+        fig = plt.subplots()
+        plt.title('Correlation scatter '+plt_variable+ ' (IMU-based)', fontsize=20)
+        i=0
+        for person in pcc_per_person['propulsion']:
+            plt.scatter(pcc_per_person['propulsion'][person], pcc_per_person['xsens']['foot angular velocity'][person], edgecolor = colors[i], facecolor=colors[i], alpha=a, marker = 'o', label=trial) # SMK green: '#004D43'
+            i+=1
+        # plt.scatter(pcc_propulsion, pcc_foot_maxangvel_xsens, edgecolor = 'k', facecolor='None', marker = 'o', label=plt_variable) # SMK green: '#004D43'
+        plt.xlabel("Propulsion ((N.s)/bodyweight)", fontsize=14)
+        plt.xticks(fontsize=14)    
+        # set_xticklabels(fontsize=16)
+        plt.ylabel(plt_variable, fontsize=14) #Difference between measures
+        plt.yticks(fontsize=14)
+        # plt.legend(fontsize=10)  
+        
+        
+        
+        plt_variable = 'Max shank angular velocity'
+        fig = plt.subplots()
+        plt.title('Correlation scatter '+plt_variable+ ' (OMCS-based)', fontsize=20)
+        i=0
+        for person in pcc_per_person['propulsion']:
+            plt.scatter(pcc_per_person['propulsion'][person], pcc_per_person['vicon']['shank angular velocity'][person], edgecolor = colors[i], facecolor=colors[i], alpha=a, marker = 'o', label=trial) # SMK green: '#004D43'
+            i+=1
+        # plt.scatter(pcc_propulsion, pcc_foot_maxangvel_xsens, edgecolor = 'k', facecolor='None', marker = 'o', label=plt_variable) # SMK green: '#004D43'
+        plt.xlabel("Propulsion ((N.s)/bodyweight)", fontsize=14)
         plt.xticks(fontsize=14)    
         # set_xticklabels(fontsize=16)
         plt.ylabel(plt_variable, fontsize=14) #Difference between measures
         plt.yticks(fontsize=14)
         # plt.legend(fontsize=10)
+        
+        plt_variable = 'Max shank angular velocity'
+        fig = plt.subplots()
+        plt.title('Correlation scatter '+plt_variable+ ' (IMU-based)', fontsize=20)
+        i=0
+        for person in pcc_per_person['propulsion']:
+            plt.scatter(pcc_per_person['propulsion'][person], pcc_per_person['xsens']['shank angular velocity'][person], edgecolor = colors[i], facecolor=colors[i], alpha=a, marker = 'o', label=trial) # SMK green: '#004D43'
+            i+=1
+        # plt.scatter(pcc_propulsion, pcc_foot_maxangvel_xsens, edgecolor = 'k', facecolor='None', marker = 'o', label=plt_variable) # SMK green: '#004D43'
+        plt.xlabel("Propulsion ((N.s)/bodyweight)", fontsize=14)
+        plt.xticks(fontsize=14)    
+        # set_xticklabels(fontsize=16)
+        plt.ylabel(plt_variable, fontsize=14) #Difference between measures
+        plt.yticks(fontsize=14)
+        # plt.legend(fontsize=10)  
+        
+        
+        
+        plt_variable = 'Max foot angular acceleration'
+        fig = plt.subplots()
+        plt.title('Correlation scatter '+plt_variable+ ' (OMCS-based)', fontsize=20)
+        i=0
+        for person in pcc_per_person['propulsion']:
+            plt.scatter(pcc_per_person['propulsion'][person], pcc_per_person['vicon']['foot angular acceleration'][person]*10, edgecolor = colors[i], facecolor=colors[i], alpha=a, marker = 'o', label=trial) # SMK green: '#004D43'
+            i+=1
+        # plt.scatter(pcc_propulsion, pcc_foot_maxangvel_xsens, edgecolor = 'k', facecolor='None', marker = 'o', label=plt_variable) # SMK green: '#004D43'
+        plt.xlabel("Propulsion ((N.s)/bodyweight)", fontsize=14)
+        plt.xticks(fontsize=14)    
+        # set_xticklabels(fontsize=16)
+        plt.ylabel(plt_variable+' (deg/s^2)', fontsize=14) #Difference between measures
+        plt.yticks(fontsize=14)
+        # plt.legend(fontsize=10)
+        
+        plt_variable = 'Max foot angular acceleration'
+        fig = plt.subplots()
+        plt.title('Correlation scatter '+plt_variable+ ' (IMU-based)', fontsize=20)
+        i=0
+        for person in pcc_per_person['propulsion']:
+            plt.scatter(pcc_per_person['propulsion'][person], pcc_per_person['xsens']['foot angular acceleration'][person], edgecolor = colors[i], facecolor=colors[i], alpha=a, marker = 'o', label=trial) # SMK green: '#004D43'
+            i+=1
+        # plt.scatter(pcc_propulsion, pcc_foot_maxangvel_xsens, edgecolor = 'k', facecolor='None', marker = 'o', label=plt_variable) # SMK green: '#004D43'
+        plt.xlabel("Propulsion ((N.s)/bodyweight)", fontsize=14)
+        plt.xticks(fontsize=14)    
+        # set_xticklabels(fontsize=16)
+        plt.ylabel(plt_variable+' (deg/s^2)', fontsize=14) #Difference between measures
+        plt.yticks(fontsize=14)
+        # plt.legend(fontsize=10)
+        
+        
+        
+        plt_variable = 'Max shank angular acceleration'
+        fig = plt.subplots()
+        plt.title('Correlation scatter '+plt_variable+ ' (OMCS-based)', fontsize=20)
+        i=0
+        for person in pcc_per_person['propulsion']:
+            plt.scatter(pcc_per_person['propulsion'][person], pcc_per_person['vicon']['shank angular acceleration'][person]*10, edgecolor = colors[i], facecolor=colors[i], alpha=a, marker = 'o', label=trial) # SMK green: '#004D43'
+            i+=1
+        # plt.scatter(pcc_propulsion, pcc_foot_maxangvel_xsens, edgecolor = 'k', facecolor='None', marker = 'o', label=plt_variable) # SMK green: '#004D43'
+        plt.xlabel("Propulsion ((N.s)/bodyweight)", fontsize=14)
+        plt.xticks(fontsize=14)    
+        # set_xticklabels(fontsize=16)
+        plt.ylabel(plt_variable+' (deg/s^2)', fontsize=14) #Difference between measures
+        plt.yticks(fontsize=14)
+        
+        plt_variable = 'Max shank angular acceleration'
+        fig = plt.subplots()
+        plt.title('Correlation scatter '+plt_variable+ ' (IMU-based)', fontsize=20)
+        i=0
+        for person in pcc_per_person['propulsion']:
+            plt.scatter(pcc_per_person['propulsion'][person], pcc_per_person['xsens']['shank angular acceleration'][person], edgecolor = colors[i], facecolor=colors[i], alpha=a, marker = 'o', label=trial) # SMK green: '#004D43'
+            i+=1
+        # plt.scatter(pcc_propulsion, pcc_foot_maxangvel_xsens, edgecolor = 'k', facecolor='None', marker = 'o', label=plt_variable) # SMK green: '#004D43'
+        plt.xlabel("Propulsion ((N.s)/bodyweight)", fontsize=14)
+        plt.xticks(fontsize=14)    
+        # set_xticklabels(fontsize=16)
+        plt.ylabel(plt_variable+' (deg/s^2)', fontsize=14) #Difference between measures
+        plt.yticks(fontsize=14)
+        
         
         
         plt_variable = 'Shank linear acceleration'
         fig = plt.subplots()
-        plt.title('Correlation scatter '+plt_variable, fontsize=20)
-        plt.scatter(pcc_propulsion, pcc_shank_maxlinacc_xsens, edgecolor = 'k', facecolor='None', marker = 'o', label=plt_variable) # SMK green: '#004D43'
-        plt.xlabel("Propulsion", fontsize=14)
+        plt.title('Correlation scatter '+plt_variable+ ' (OMCS-based)', fontsize=20)
+        i=0
+        for person in pcc_per_person['propulsion']:
+            plt.scatter(pcc_per_person['propulsion'][person], pcc_per_person['vicon']['shank linear acceleration'][person], edgecolor = colors[i], facecolor=colors[i], alpha=a, marker = 'o', label=trial) # SMK green: '#004D43'
+            i+=1
+        # plt.scatter(pcc_propulsion, pcc_foot_maxangvel_xsens, edgecolor = 'k', facecolor='None', marker = 'o', label=plt_variable) # SMK green: '#004D43'
+        plt.xlabel("Propulsion ((N.s)/bodyweight)", fontsize=14)
+        plt.xticks(fontsize=14)    
+        # set_xticklabels(fontsize=16)
+        plt.ylabel(plt_variable+' (m/s^2)', fontsize=14) #Difference between measures
+        plt.yticks(fontsize=14)
+        
+        plt_variable = 'Shank linear acceleration'
+        fig = plt.subplots()
+        plt.title('Correlation scatter '+plt_variable+ ' (IMU-based)', fontsize=20)
+        i=0
+        for person in pcc_per_person['propulsion']:
+            plt.scatter(pcc_per_person['propulsion'][person], pcc_per_person['xsens']['shank linear acceleration'][person], edgecolor = colors[i], facecolor=colors[i], alpha=a, marker = 'o', label=trial) # SMK green: '#004D43'
+            i+=1
+        # plt.scatter(pcc_propulsion, pcc_foot_maxangvel_xsens, edgecolor = 'k', facecolor='None', marker = 'o', label=plt_variable) # SMK green: '#004D43'
+        plt.xlabel("Propulsion ((N.s)/bodyweight)", fontsize=14)
+        plt.xticks(fontsize=14)    
+        # set_xticklabels(fontsize=16)
+        plt.ylabel(plt_variable+' (m/s^2)', fontsize=14) #Difference between measures
+        plt.yticks(fontsize=14)
+        
+        
+        
+        plt_variable = 'Stride length'
+        fig = plt.subplots()
+        plt.title('Correlation scatter '+plt_variable+ ' (OMCS-based)', fontsize=20)
+        i=0
+        for person in pcc_per_person['propulsion']:
+            plt.scatter(pcc_per_person['propulsion stridelength vicon'][person], pcc_per_person['vicon']['stride length'][person]/1000, edgecolor = colors[i], facecolor=colors[i], alpha=a, marker = 'o', label=trial) # SMK green: '#004D43'
+            i+=1
+        # plt.scatter(pcc_propulsion, pcc_foot_maxangvel_xsens, edgecolor = 'k', facecolor='None', marker = 'o', label=plt_variable) # SMK green: '#004D43'
+        plt.xlabel("Propulsion ((N.s)/bodyweight)", fontsize=14)
+        plt.xticks(fontsize=14)    
+        # set_xticklabels(fontsize=16)
+        plt.ylabel(plt_variable+' (m)', fontsize=14) #Difference between measures
+        plt.yticks(fontsize=14)
+        
+        plt_variable = 'Stride length'
+        fig = plt.subplots()
+        plt.title('Correlation scatter '+plt_variable+ ' (IMU-based)', fontsize=20)
+        i=0
+        for person in pcc_per_person['propulsion']:
+            plt.scatter(pcc_per_person['propulsion stridelength xsens'][person], pcc_per_person['xsens']['stride length'][person], edgecolor = colors[i], facecolor=colors[i], alpha=a, marker = 'o', label=trial) # SMK green: '#004D43'
+            i+=1
+        # plt.scatter(pcc_propulsion, pcc_foot_maxangvel_xsens, edgecolor = 'k', facecolor='None', marker = 'o', label=plt_variable) # SMK green: '#004D43'
+        plt.xlabel("Propulsion ((N.s)/bodyweight)", fontsize=14)
+        plt.xticks(fontsize=14)    
+        # set_xticklabels(fontsize=16)
+        plt.ylabel(plt_variable+' (m)', fontsize=14) #Difference between measures
+        plt.yticks(fontsize=14)
+        
+        
+        
+        
+        # PEAK
+        plt_variable = 'Foot angle at terminal contact'
+        fig = plt.subplots()
+        plt.title('Correlation scatter '+plt_variable+ ' (OMCS-based)', fontsize=20)
+        i=0
+        for person in pcc_per_person['propulsion peak']:
+            plt.scatter(pcc_per_person['propulsion peak'][person], pcc_per_person['vicon']['foot angle TC'][person], edgecolor = colors[i], facecolor=colors[i], alpha=a, marker = 'o', label=trial) # SMK green: '#004D43'
+            i+=1
+        # plt.scatter(pcc_propulsion, pcc_foot_maxangvel_xsens, edgecolor = 'k', facecolor='None', marker = 'o', label=plt_variable) # SMK green: '#004D43'
+        plt.xlabel("Propulsion (N/bodyweight)", fontsize=14)
+        plt.xticks(fontsize=14)    
+        # set_xticklabels(fontsize=16)
+        plt.ylabel(plt_variable+' (deg)', fontsize=14) #Difference between measures
+        plt.yticks(fontsize=14)
+        # plt.legend(fontsize=10)
+        
+        plt_variable = 'Foot angle at terminal contact'
+        fig = plt.subplots()
+        plt.title('Correlation scatter '+plt_variable+ ' (IMU-based)', fontsize=20)
+        i=0
+        for person in pcc_per_person['propulsion peak']:
+            plt.scatter(pcc_per_person['propulsion peak'][person], pcc_per_person['xsens']['foot angle TC'][person], edgecolor = colors[i], facecolor=colors[i], alpha=a, marker = 'o', label=trial) # SMK green: '#004D43'
+            i+=1
+        # plt.scatter(pcc_propulsion, pcc_foot_maxangvel_xsens, edgecolor = 'k', facecolor='None', marker = 'o', label=plt_variable) # SMK green: '#004D43'
+        plt.xlabel("Propulsion (N/bodyweight)", fontsize=14)
+        plt.xticks(fontsize=14)    
+        # set_xticklabels(fontsize=16)
+        plt.ylabel(plt_variable+' (deg)', fontsize=14) #Difference between measures
+        plt.yticks(fontsize=14)
+        # plt.legend(fontsize=10)
+        
+        
+        
+        plt_variable = 'Shank angle at terminal contact'
+        fig = plt.subplots()
+        plt.title('Correlation scatter '+plt_variable+ ' (OMCS-based)', fontsize=20)
+        i=0
+        for person in pcc_per_person['propulsion peak']:
+            plt.scatter(pcc_per_person['propulsion peak'][person], pcc_per_person['vicon']['shank angle TC'][person], edgecolor = colors[i], facecolor=colors[i], alpha=a, marker = 'o', label=trial) # SMK green: '#004D43'
+            i+=1
+        # plt.scatter(pcc_propulsion, pcc_foot_maxangvel_xsens, edgecolor = 'k', facecolor='None', marker = 'o', label=plt_variable) # SMK green: '#004D43'
+        plt.xlabel("Propulsion (N/bodyweight)", fontsize=14)
+        plt.xticks(fontsize=14)    
+        # set_xticklabels(fontsize=16)
+        plt.ylabel(plt_variable+' (deg)', fontsize=14) #Difference between measures
+        plt.yticks(fontsize=14)
+        # plt.legend(fontsize=10)
+        
+        plt_variable = 'Shank angle at terminal contact'
+        fig = plt.subplots()
+        plt.title('Correlation scatter '+plt_variable+ ' (IMU-based)', fontsize=20)
+        i=0
+        for person in pcc_per_person['propulsion peak']:
+            plt.scatter(pcc_per_person['propulsion peak'][person], pcc_per_person['xsens']['shank angle TC'][person], edgecolor = colors[i], facecolor=colors[i], alpha=a, marker = 'o', label=trial) # SMK green: '#004D43'
+            i+=1
+        # plt.scatter(pcc_propulsion, pcc_foot_maxangvel_xsens, edgecolor = 'k', facecolor='None', marker = 'o', label=plt_variable) # SMK green: '#004D43'
+        plt.xlabel("Propulsion (N/bodyweight)", fontsize=14)
+        plt.xticks(fontsize=14)    
+        # set_xticklabels(fontsize=16)
+        plt.ylabel(plt_variable+' (deg)', fontsize=14) #Difference between measures
+        plt.yticks(fontsize=14)
+        # plt.legend(fontsize=10)
+        
+        
+        
+        plt_variable = 'Max foot angular velocity'
+        fig = plt.subplots()
+        plt.title('Correlation scatter '+plt_variable+ ' (OMCS-based)', fontsize=20)
+        i=0
+        for person in pcc_per_person['propulsion peak']:
+            plt.scatter(pcc_per_person['propulsion peak'][person], pcc_per_person['vicon']['foot angular velocity'][person], edgecolor = colors[i], facecolor=colors[i], alpha=a, marker = 'o', label=trial) # SMK green: '#004D43'
+            i+=1
+        # plt.scatter(pcc_propulsion, pcc_foot_maxangvel_xsens, edgecolor = 'k', facecolor='None', marker = 'o', label=plt_variable) # SMK green: '#004D43'
+        plt.xlabel("Propulsion (N/bodyweight)", fontsize=14)
+        plt.xticks(fontsize=14)    
+        # set_xticklabels(fontsize=16)
+        plt.ylabel(plt_variable+' (deg/s)', fontsize=14) #Difference between measures
+        plt.yticks(fontsize=14)
+        # plt.legend(fontsize=10)  
+        
+        plt_variable = 'Max foot angular velocity'
+        fig = plt.subplots()
+        plt.title('Correlation scatter '+plt_variable+ ' (IMU-based)', fontsize=20)
+        i=0
+        for person in pcc_per_person['propulsion peak']:
+            plt.scatter(pcc_per_person['propulsion peak'][person], pcc_per_person['xsens']['foot angular velocity'][person], edgecolor = colors[i], facecolor=colors[i], alpha=a, marker = 'o', label=trial) # SMK green: '#004D43'
+            i+=1
+        # plt.scatter(pcc_propulsion, pcc_foot_maxangvel_xsens, edgecolor = 'k', facecolor='None', marker = 'o', label=plt_variable) # SMK green: '#004D43'
+        plt.xlabel("Propulsion (N/bodyweight)", fontsize=14)
+        plt.xticks(fontsize=14)    
+        # set_xticklabels(fontsize=16)
+        plt.ylabel(plt_variable+' (deg/s)', fontsize=14) #Difference between measures
+        plt.yticks(fontsize=14)
+        # plt.legend(fontsize=10)  
+        
+        
+        
+        plt_variable = 'Max shank angular velocity'
+        fig = plt.subplots()
+        plt.title('Correlation scatter '+plt_variable+ ' (OMCS-based)', fontsize=20)
+        i=0
+        for person in pcc_per_person['propulsion peak']:
+            plt.scatter(pcc_per_person['propulsion peak'][person], pcc_per_person['vicon']['shank angular velocity'][person], edgecolor = colors[i], facecolor=colors[i], alpha=a, marker = 'o', label=trial) # SMK green: '#004D43'
+            i+=1
+        # plt.scatter(pcc_propulsion, pcc_foot_maxangvel_xsens, edgecolor = 'k', facecolor='None', marker = 'o', label=plt_variable) # SMK green: '#004D43'
+        plt.xlabel("Propulsion (N/bodyweight)", fontsize=14)
         plt.xticks(fontsize=14)    
         # set_xticklabels(fontsize=16)
         plt.ylabel(plt_variable, fontsize=14) #Difference between measures
         plt.yticks(fontsize=14)
         # plt.legend(fontsize=10)
         
-        plt_variable = 'Stride length'
+        plt_variable = 'Max shank angular velocity'
         fig = plt.subplots()
-        plt.title('Correlation scatter '+plt_variable, fontsize=20)
-        plt.scatter(pcc_propulsion, pcc_foot_stridelength_xsens, edgecolor = 'k', facecolor='None', marker = 'o', label=plt_variable) # SMK green: '#004D43'
-        plt.scatter(pcc_propulsion, pcc_foot_stridelength_vicon/1000, edgecolor = 'r', facecolor='None', marker = 'o', label=plt_variable) # SMK green: '#004D43'
-        plt.xlabel("Propulsion", fontsize=14)
+        plt.title('Correlation scatter '+plt_variable+ ' (IMU-based)', fontsize=20)
+        i=0
+        for person in pcc_per_person['propulsion peak']:
+            plt.scatter(pcc_per_person['propulsion peak'][person], pcc_per_person['xsens']['shank angular velocity'][person], edgecolor = colors[i], facecolor=colors[i], alpha=a, marker = 'o', label=trial) # SMK green: '#004D43'
+            i+=1
+        # plt.scatter(pcc_propulsion, pcc_foot_maxangvel_xsens, edgecolor = 'k', facecolor='None', marker = 'o', label=plt_variable) # SMK green: '#004D43'
+        plt.xlabel("Propulsion (N/bodyweight)", fontsize=14)
+        plt.xticks(fontsize=14)    
+        # set_xticklabels(fontsize=16)
+        plt.ylabel(plt_variable, fontsize=14) #Difference between measures
+        plt.yticks(fontsize=14)
+        # plt.legend(fontsize=10)  
+        
+        
+        
+        plt_variable = 'Max foot angular acceleration'
+        fig = plt.subplots()
+        plt.title('Correlation scatter '+plt_variable+ ' (OMCS-based)', fontsize=20)
+        i=0
+        for person in pcc_per_person['propulsion peak']:
+            plt.scatter(pcc_per_person['propulsion peak'][person], pcc_per_person['vicon']['foot angular acceleration'][person]*10, edgecolor = colors[i], facecolor=colors[i], alpha=a, marker = 'o', label=trial) # SMK green: '#004D43'
+            i+=1
+        # plt.scatter(pcc_propulsion, pcc_foot_maxangvel_xsens, edgecolor = 'k', facecolor='None', marker = 'o', label=plt_variable) # SMK green: '#004D43'
+        plt.xlabel("Propulsion (N/bodyweight)", fontsize=14)
         plt.xticks(fontsize=14)    
         # set_xticklabels(fontsize=16)
         plt.ylabel(plt_variable, fontsize=14) #Difference between measures
         plt.yticks(fontsize=14)
         # plt.legend(fontsize=10)
+        
+        plt_variable = 'Max foot angular acceleration'
+        fig = plt.subplots()
+        plt.title('Correlation scatter '+plt_variable+ ' (IMU-based)', fontsize=20)
+        i=0
+        for person in pcc_per_person['propulsion peak']:
+            plt.scatter(pcc_per_person['propulsion peak'][person], pcc_per_person['xsens']['foot angular acceleration'][person], edgecolor = colors[i], facecolor=colors[i], alpha=a, marker = 'o', label=trial) # SMK green: '#004D43'
+            i+=1
+        # plt.scatter(pcc_propulsion, pcc_foot_maxangvel_xsens, edgecolor = 'k', facecolor='None', marker = 'o', label=plt_variable) # SMK green: '#004D43'
+        plt.xlabel("Propulsion (N/bodyweight)", fontsize=14)
+        plt.xticks(fontsize=14)    
+        # set_xticklabels(fontsize=16)
+        plt.ylabel(plt_variable, fontsize=14) #Difference between measures
+        plt.yticks(fontsize=14)
+        # plt.legend(fontsize=10)
+        
+        
+        
+        plt_variable = 'Max shank angular acceleration'
+        fig = plt.subplots()
+        plt.title('Correlation scatter '+plt_variable+ ' (OMCS-based)', fontsize=20)
+        i=0
+        for person in pcc_per_person['propulsion peak']:
+            plt.scatter(pcc_per_person['propulsion peak'][person], pcc_per_person['vicon']['shank angular acceleration'][person]*10, edgecolor = colors[i], facecolor=colors[i], alpha=a, marker = 'o', label=trial) # SMK green: '#004D43'
+            i+=1
+        # plt.scatter(pcc_propulsion, pcc_foot_maxangvel_xsens, edgecolor = 'k', facecolor='None', marker = 'o', label=plt_variable) # SMK green: '#004D43'
+        plt.xlabel("Propulsion (N/bodyweight)", fontsize=14)
+        plt.xticks(fontsize=14)    
+        # set_xticklabels(fontsize=16)
+        plt.ylabel(plt_variable+' (deg/s^2)', fontsize=14) #Difference between measures
+        plt.yticks(fontsize=14)
+        
+        plt_variable = 'Max shank angular acceleration'
+        fig = plt.subplots()
+        plt.title('Correlation scatter '+plt_variable+ ' (IMU-based)', fontsize=20)
+        i=0
+        for person in pcc_per_person['propulsion peak']:
+            plt.scatter(pcc_per_person['propulsion peak'][person], pcc_per_person['xsens']['shank angular acceleration'][person], edgecolor = colors[i], facecolor=colors[i], alpha=a, marker = 'o', label=trial) # SMK green: '#004D43'
+            i+=1
+        # plt.scatter(pcc_propulsion, pcc_foot_maxangvel_xsens, edgecolor = 'k', facecolor='None', marker = 'o', label=plt_variable) # SMK green: '#004D43'
+        plt.xlabel("Propulsion (N/bodyweight)", fontsize=14)
+        plt.xticks(fontsize=14)    
+        # set_xticklabels(fontsize=16)
+        plt.ylabel(plt_variable+' (deg/s^2)', fontsize=14) #Difference between measures
+        plt.yticks(fontsize=14)
+        
+        
+        
+        plt_variable = 'Shank linear acceleration'
+        fig = plt.subplots()
+        plt.title('Correlation scatter '+plt_variable+ ' (OMCS-based)', fontsize=20)
+        i=0
+        for person in pcc_per_person['propulsion peak']:
+            plt.scatter(pcc_per_person['propulsion peak'][person], pcc_per_person['vicon']['shank linear acceleration'][person], edgecolor = colors[i], facecolor=colors[i], alpha=a, marker = 'o', label=trial) # SMK green: '#004D43'
+            i+=1
+        # plt.scatter(pcc_propulsion, pcc_foot_maxangvel_xsens, edgecolor = 'k', facecolor='None', marker = 'o', label=plt_variable) # SMK green: '#004D43'
+        plt.xlabel("Propulsion (N/bodyweight)", fontsize=14)
+        plt.xticks(fontsize=14)    
+        # set_xticklabels(fontsize=16)
+        plt.ylabel(plt_variable+' (m/s^2)', fontsize=14) #Difference between measures
+        plt.yticks(fontsize=14)
+        
+        plt_variable = 'Shank linear acceleration'
+        fig = plt.subplots()
+        plt.title('Correlation scatter '+plt_variable+ ' (IMU-based)', fontsize=20)
+        i=0
+        for person in pcc_per_person['propulsion peak']:
+            plt.scatter(pcc_per_person['propulsion peak'][person], pcc_per_person['xsens']['shank linear acceleration'][person], edgecolor = colors[i], facecolor=colors[i], alpha=a, marker = 'o', label=trial) # SMK green: '#004D43'
+            i+=1
+        # plt.scatter(pcc_propulsion, pcc_foot_maxangvel_xsens, edgecolor = 'k', facecolor='None', marker = 'o', label=plt_variable) # SMK green: '#004D43'
+        plt.xlabel("Propulsion (N/bodyweight)", fontsize=14)
+        plt.xticks(fontsize=14)    
+        # set_xticklabels(fontsize=16)
+        plt.ylabel(plt_variable+' (m/s^2)', fontsize=14) #Difference between measures
+        plt.yticks(fontsize=14)
+        
+        
+        
+        plt_variable = 'Stride length'
+        fig = plt.subplots()
+        plt.title('Correlation scatter '+plt_variable+ ' (OMCS-based)', fontsize=20)
+        i=0
+        for person in pcc_per_person['propulsion peak']:
+            try:
+                plt.scatter(pcc_per_person['propulsion peak'][person], pcc_per_person['vicon']['stride length'][person]/1000, edgecolor = colors[i], facecolor=colors[i], alpha=a, marker = 'o', label=trial) # SMK green: '#004D43'
+                i+=1
+            except:
+                i+=1
+                print(person)
+        # plt.scatter(pcc_propulsion, pcc_foot_maxangvel_xsens, edgecolor = 'k', facecolor='None', marker = 'o', label=plt_variable) # SMK green: '#004D43'
+        plt.xlabel("Propulsion (N/bodyweight)", fontsize=14)
+        plt.xticks(fontsize=14)    
+        # set_xticklabels(fontsize=16)
+        plt.ylabel(plt_variable+' (m)', fontsize=14) #Difference between measures
+        plt.yticks(fontsize=14)
+        
+        plt_variable = 'Stride length'
+        fig = plt.subplots()
+        plt.title('Correlation scatter '+plt_variable+ ' (IMU-based)', fontsize=20)
+        i=0
+        for person in pcc_per_person['propulsion']:
+            try:
+                plt.scatter(pcc_per_person['propulsion peak'][person], pcc_per_person['xsens']['stride length'][person], edgecolor = colors[i], facecolor=colors[i], alpha=a, marker = 'o', label=trial) # SMK green: '#004D43'
+                i+=1
+            except:
+                i+=1
+                continue    
+        # plt.scatter(pcc_propulsion, pcc_foot_maxangvel_xsens, edgecolor = 'k', facecolor='None', marker = 'o', label=plt_variable) # SMK green: '#004D43'
+        plt.xlabel("Propulsion (N/bodyweight)", fontsize=14)
+        plt.xticks(fontsize=14)    
+        # set_xticklabels(fontsize=16)
+        plt.ylabel(plt_variable+' (m)', fontsize=14) #Difference between measures
+        plt.yticks(fontsize=14)
