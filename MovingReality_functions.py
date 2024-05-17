@@ -44,6 +44,27 @@ def person_characteristics(**kwargs):
     bodyweight['1019_MR011'] = 104
     bodyweight['1019_MR012'] = 79
     
+    bodyweight['900_V_pp01'] = 72
+    bodyweight['900_V_pp03'] = 74.8
+    bodyweight['900_V_pp04'] = 76.8
+    bodyweight['900_V_pp05'] = 67.8
+    bodyweight['900_V_pp06'] = 77.2
+    bodyweight['900_V_pp07'] = 62.4
+    bodyweight['900_V_pp08'] = 63.6
+    bodyweight['900_V_pp09'] = 69
+    bodyweight['900_V_pp10'] = 93
+    bodyweight['900_V_pp11'] = 77.6
+    bodyweight['900_V_pp12'] = 78.2
+    bodyweight['900_V_pp13'] = 88.6
+    bodyweight['900_V_pp14'] = 68.4
+    bodyweight['900_V_pp15'] = 66.2
+    bodyweight['900_V_pp16'] = 70.4
+    bodyweight['900_V_pp18'] = 77
+    bodyweight['900_V_pp19'] = 70
+    bodyweight['900_V_pp20'] = 76.8
+    bodyweight['900_V_pp21'] = 89.2
+    bodyweight['900_V_pp22'] = 73.4
+    
     # Height in cm
     height['1019_MR001'] = 177.5
     height['1019_MR002'] = 171
@@ -58,6 +79,27 @@ def person_characteristics(**kwargs):
     height['1019_MR011'] = 170
     height['1019_MR012'] = 172
     
+    height['900_V_pp01'] = 168
+    height['900_V_pp03'] = 164
+    height['900_V_pp04'] = 166
+    height['900_V_pp05'] = 165
+    height['900_V_pp06'] = 183
+    height['900_V_pp07'] = 173
+    height['900_V_pp08'] = 168
+    height['900_V_pp09'] = 179
+    height['900_V_pp10'] = 186
+    height['900_V_pp11'] = 181
+    height['900_V_pp12'] = 180
+    height['900_V_pp13'] =180
+    height['900_V_pp14'] = 170
+    height['900_V_pp15'] = 162
+    height['900_V_pp16'] = 166
+    height['900_V_pp18'] = 182
+    height['900_V_pp19'] = 174
+    height['900_V_pp20'] = 180
+    height['900_V_pp21'] = 179
+    height['900_V_pp22'] = 176
+    
     # Age in years
     age['1019_MR001'] =  64
     age['1019_MR002'] =  49
@@ -71,6 +113,27 @@ def person_characteristics(**kwargs):
     age['1019_MR010'] =  37
     age['1019_MR011'] =  59
     age['1019_MR012'] =  62
+    
+    age['900_V_pp01'] = 54
+    age['900_V_pp03'] = 69
+    age['900_V_pp04'] = 68
+    age['900_V_pp05'] = 68
+    age['900_V_pp06'] = 63
+    age['900_V_pp07'] = 51
+    age['900_V_pp08'] = 41
+    age['900_V_pp09'] = 43
+    age['900_V_pp10'] = 55
+    age['900_V_pp11'] = 41
+    age['900_V_pp12'] = 45
+    age['900_V_pp13'] = 53
+    age['900_V_pp14'] = 41
+    age['900_V_pp15'] = 59
+    age['900_V_pp16'] = 61
+    age['900_V_pp18'] = 79
+    age['900_V_pp19'] = 73
+    age['900_V_pp20'] = 72
+    age['900_V_pp21'] = 76
+    age['900_V_pp22'] = 72
     
     # Time since stroke onset in months
     time_since_stroke['1019_MR001'] = 189
@@ -100,6 +163,27 @@ def person_characteristics(**kwargs):
     comfortable_gait_speed['1019_MR011'] =  0.8
     comfortable_gait_speed['1019_MR012'] =  1.1
 
+    comfortable_gait_speed['900_V_pp01'] = 1.4
+    comfortable_gait_speed['900_V_pp03'] = 1.3
+    comfortable_gait_speed['900_V_pp04'] = 1.4
+    comfortable_gait_speed['900_V_pp05'] = 1.2
+    comfortable_gait_speed['900_V_pp06'] = 1.3
+    comfortable_gait_speed['900_V_pp07'] = 1.2
+    comfortable_gait_speed['900_V_pp08'] = 1.4
+    comfortable_gait_speed['900_V_pp09'] = 1.3
+    comfortable_gait_speed['900_V_pp10'] = 1.1
+    comfortable_gait_speed['900_V_pp11'] = 1.5
+    comfortable_gait_speed['900_V_pp12'] = 1.2
+    comfortable_gait_speed['900_V_pp13'] = 1.3
+    comfortable_gait_speed['900_V_pp14'] = 1.4
+    comfortable_gait_speed['900_V_pp15'] = 1.3
+    comfortable_gait_speed['900_V_pp16'] = 1.4
+    comfortable_gait_speed['900_V_pp18'] = 1.3
+    comfortable_gait_speed['900_V_pp19'] = 1.2
+    comfortable_gait_speed['900_V_pp20'] = 1.3
+    comfortable_gait_speed['900_V_pp21'] = 1.0
+    comfortable_gait_speed['900_V_pp22'] = 1.3
+    
     return bodyweight, height, age, time_since_stroke, comfortable_gait_speed
 
 
@@ -121,6 +205,27 @@ def group_trialorder(**kwargs):
     group['1019_MR006']='PO'
     group['1019_MR010']='PO'
     group['1019_MR012']='PO'
+    
+    group['900_V_pp01'] = 'Healthy controls'
+    group['900_V_pp03'] = 'Healthy controls'
+    group['900_V_pp04'] = 'Healthy controls'
+    group['900_V_pp05'] = 'Healthy controls'
+    group['900_V_pp06'] = 'Healthy controls'
+    group['900_V_pp07'] = 'Healthy controls'
+    group['900_V_pp08'] = 'Healthy controls'
+    group['900_V_pp09'] = 'Healthy controls'
+    group['900_V_pp10'] = 'Healthy controls'
+    group['900_V_pp11'] = 'Healthy controls'
+    group['900_V_pp12'] = 'Healthy controls'
+    group['900_V_pp13'] = 'Healthy controls'
+    group['900_V_pp14'] = 'Healthy controls'
+    group['900_V_pp15'] = 'Healthy controls'
+    group['900_V_pp16'] = 'Healthy controls'
+    group['900_V_pp18'] = 'Healthy controls'
+    group['900_V_pp19'] = 'Healthy controls'
+    group['900_V_pp20'] = 'Healthy controls'
+    group['900_V_pp21'] = 'Healthy controls'
+    group['900_V_pp22'] = 'Healthy controls'
     # group['FSA']=list(['1019_MR001', '1019_MR003', '1019_MR005', '1019_MR007', '1019_MR008', '1019_MR009', '1019_MR011'])
     # group['PO']=list(['1019_MR002', '1019_MR004', '1019_MR006', '1019_MR010', '1019_MR012'])
     
@@ -134,100 +239,100 @@ def corresponding_filenames(**kwargs):
     triallist = dict()
     
     # 1019_pp01
-    triallist['1019_MR001'] = ['1019_MR001_1Reg.c3d', '1019_MR001_FBIC.c3d', '1019_MR001_FBPO.c3d', '1019_MR001_2FB.c3d', '1019_MR001_2Reg.c3d']
-    corresponding_files['1019_MR001_1Reg.c3d'] = 'exported000'
-    corresponding_files['1019_MR001_FBIC.c3d'] = 'exported006'
-    corresponding_files['1019_MR001_FBPO.c3d'] = 'exported001'
-    corresponding_files['1019_MR001_2FB.c3d'] = 'exported003'
-    corresponding_files['1019_MR001_2Reg.c3d'] = 'exported007'
+    triallist['1019_MR001'] = ['1019_MR001_230118_1Reg.c3d', '1019_MR001_230118_FBIC.c3d', '1019_MR001_230118_FBPO.c3d', '1019_MR001_230118_2FB.c3d', '1019_MR001_230118_2Reg.c3d']
+    corresponding_files['1019_MR001_230118_1Reg.c3d'] = 'exported000'
+    corresponding_files['1019_MR001_230118_FBIC.c3d'] = 'exported006'
+    corresponding_files['1019_MR001_230118_FBPO.c3d'] = 'exported001'
+    corresponding_files['1019_MR001_230118_2FB.c3d'] = 'exported003'
+    corresponding_files['1019_MR001_230118_2Reg.c3d'] = 'exported007'
     
     # 1019_pp02
-    triallist['1019_MR002'] = ['1019_MR002_Reg.c3d', '1019_MR002_FBIC.c3d', '1019_MR002_FBPO.c3d', '1019_MR002_2FB.c3d', '1019_MR002_2Reg.c3d']
-    corresponding_files['1019_MR002_Reg.c3d'] = 'exported000'
-    corresponding_files['1019_MR002_FBIC.c3d'] = 'exported001'
-    corresponding_files['1019_MR002_FBPO.c3d'] = 'exported002'
-    corresponding_files['1019_MR002_2FB.c3d'] = 'exported003'
-    corresponding_files['1019_MR002_2Reg.c3d'] = 'exported004'
+    triallist['1019_MR002'] = ['1019_MR002_2303081Reg.c3d', '1019_MR002_2303081FBIC.c3d', '1019_MR002_2303081FBPO.c3d', '1019_MR002_23030812FB.c3d', '1019_MR002_2303082FB.c3d']
+    corresponding_files['1019_MR002_2303081Reg.c3d'] = 'exported000'
+    corresponding_files['1019_MR002_2303081FBIC.c3d'] = 'exported001'
+    corresponding_files['1019_MR002_2303081FBPO.c3d'] = 'exported002'
+    corresponding_files['1019_MR002_23030812FB.c3d'] = 'exported003'
+    corresponding_files['1019_MR002_2303082FB.c3d'] = 'exported004' # Is the second trial without feedback (2Reg)
     
     # 1019_pp03
-    triallist['1019_MR003'] = ['1019_MR003_1Reg02.c3d', '1019_MR003_FBIC.c3d', '1019_MR003_FBPO.c3d', '1019_MR003_2FB.c3d','1019_MR003_2Reg.c3d']
-    corresponding_files['1019_MR003_1Reg02.c3d'] = 'exported002'
-    corresponding_files['1019_MR003_FBPO.c3d'] = 'exported003'
-    corresponding_files['1019_MR003_FBIC.c3d'] = '' # Xsens recording error
-    corresponding_files['1019_MR003_2FB.c3d'] = 'exported005'
-    corresponding_files['1019_MR003_2Reg.c3d'] = 'exported006'
+    triallist['1019_MR003'] = ['1019_MR003_230333_1Reg02.c3d', '1019_MR003_230333_FBIC.c3d', '1019_MR003_230333_FBPO.c3d', '1019_MR003_230333_2FB.c3d','1019_MR003_230333_2Reg.c3d']
+    corresponding_files['1019_MR003_230333_1Reg02.c3d'] = 'exported002'
+    corresponding_files['1019_MR003_230333_FBPO.c3d'] = 'exported003'
+    corresponding_files['1019_MR003_230333_FBIC.c3d'] = '' # Xsens recording error
+    corresponding_files['1019_MR003_230333_2FB.c3d'] = 'exported005'
+    corresponding_files['1019_MR003_230333_2Reg.c3d'] = 'exported006'
 
     # 1019_pp04
-    triallist['1019_MR004'] = ['1019_MR004_1Reg.c3d', '1019_MR004_FBIC.c3d', '1019_MR004_FBPO.c3d', '1019_MR004_2FB.c3d','1019_MR004_2Reg02.c3d']
-    corresponding_files['1019_MR004_1Reg.c3d'] = 'exported000'
-    corresponding_files['1019_MR004_FBIC.c3d'] = 'exported001'
-    corresponding_files['1019_MR004_FBPO.c3d'] = 'exported002'
-    corresponding_files['1019_MR004_2FB.c3d'] = 'exported003'
-    corresponding_files['1019_MR004_2Reg02.c3d'] = 'exported004'
+    triallist['1019_MR004'] = ['1019_MR004_230322_1Reg.c3d', '1019_MR004_230322_FBIC.c3d', '1019_MR004_230322_FBPO.c3d', '1019_MR004_230322_2FB.c3d','1019_MR004_230322_2Reg02.c3d']
+    corresponding_files['1019_MR004_230322_1Reg.c3d'] = 'exported000'
+    corresponding_files['1019_MR004_230322_FBIC.c3d'] = 'exported001'
+    corresponding_files['1019_MR004_230322_FBPO.c3d'] = 'exported002'
+    corresponding_files['1019_MR004_230322_2FB.c3d'] = 'exported003'
+    corresponding_files['1019_MR004_230322_2Reg02.c3d'] = 'exported004'
 
     # 1019_pp05
-    triallist['1019_MR005'] = ['1019_MR005_1Reg01.c3d', '1019_MR005_FBIC.c3d', '1019_MR005_FBPO.c3d', '1019_MR005_2FB.c3d', '1019_MR005_2Reg.c3d']
-    corresponding_files['1019_MR005_1Reg01.c3d'] = 'exported001'
-    corresponding_files['1019_MR005_FBIC.c3d'] = 'exported003'
-    corresponding_files['1019_MR005_FBPO.c3d'] = 'exported002'
-    corresponding_files['1019_MR005_2FB.c3d'] = 'exported004'
-    corresponding_files['1019_MR005_2Reg.c3d'] = 'exported005'
+    triallist['1019_MR005'] = ['1019_MR005_230411_1Reg01.c3d', '1019_MR005_230411_FBIC.c3d', '1019_MR005_230411_FBPO.c3d', '1019_MR005_230411_2FB.c3d', '1019_MR005_230411_2Reg.c3d']
+    corresponding_files['1019_MR005_230411_1Reg01.c3d'] = 'exported001'
+    corresponding_files['1019_MR005_230411_FBIC.c3d'] = 'exported003'
+    corresponding_files['1019_MR005_230411_FBPO.c3d'] = 'exported002'
+    corresponding_files['1019_MR005_230411_2FB.c3d'] = 'exported004'
+    corresponding_files['1019_MR005_230411_2Reg.c3d'] = 'exported005'
     
     # 1019_pp06
-    triallist['1019_MR006'] = ['1019_MR006_1Reg.c3d', '1019_MR006_FBPO.c3d', '1019_MR006_2FB.c3d', '1019_MR006_2Reg02.c3d']
-    corresponding_files['1019_MR006_1Reg.c3d'] = 'exported001'
-    # corresponding_files['1019_MR006_FBIC.c3d'] = 'exported002' # Vicon data not of good quality; no sufficient gold-standard
-    corresponding_files['1019_MR006_FBPO.c3d'] = 'exported003'
-    corresponding_files['1019_MR006_2FB.c3d'] = 'exported004'
-    corresponding_files['1019_MR006_2Reg02.c3d'] = '' # Xsens recording error
+    triallist['1019_MR006'] = ['1019_MR006_230307_1Reg.c3d', '1019_MR006_230307_FBPO.c3d', '1019_MR006_230307_2FB.c3d', '1019_MR006_230307_2Reg02.c3d']
+    corresponding_files['1019_MR006_230307_1Reg.c3d'] = 'exported001'
+    # corresponding_files['1019_MR006_230307_FBIC.c3d'] = 'exported002' # Vicon data not of good quality; no sufficient gold-standard
+    corresponding_files['1019_MR006_230307_FBPO.c3d'] = 'exported003'
+    corresponding_files['1019_MR006_230307_2FB.c3d'] = 'exported004'
+    corresponding_files['1019_MR006_230307_2Reg02.c3d'] = '' # Xsens recording error
     
     # 1019_pp07
-    triallist['1019_MR007'] = ['1019_MR007_1Reg02.c3d', '1019_MR007_FBIC.c3d', '1019_MR007_FBPO.c3d', '1019_MR007_2FB.c3d', '1019_MR007_2Reg.c3d']
-    corresponding_files['1019_MR007_1Reg02.c3d'] = 'exported000'
-    corresponding_files['1019_MR007_FBIC.c3d'] = 'exported002'
-    corresponding_files['1019_MR007_FBPO.c3d'] = 'exported001'
-    corresponding_files['1019_MR007_2FB.c3d'] = 'exported003'
-    corresponding_files['1019_MR007_2Reg.c3d'] = 'exported004'
+    triallist['1019_MR007'] = ['1019_MR007_230329_1Reg02.c3d', '1019_MR007_230329_FBIC.c3d', '1019_MR007_230329_FBPO.c3d', '1019_MR007_230329_2FB.c3d', '1019_MR007_230329_2Reg.c3d']
+    corresponding_files['1019_MR007_230329_1Reg02.c3d'] = 'exported000'
+    corresponding_files['1019_MR007_230329_FBIC.c3d'] = 'exported002'
+    corresponding_files['1019_MR007_230329_FBPO.c3d'] = 'exported001'
+    corresponding_files['1019_MR007_230329_2FB.c3d'] = 'exported003'
+    corresponding_files['1019_MR007_230329_2Reg.c3d'] = 'exported004'
     
     # 1019_pp08
-    triallist['1019_MR008'] = ['1019_MR008_1Reg02.c3d', '1019_MR008_FBIC.c3d', '1019_MR008_FBPO.c3d', '1019_MR008_2FB.c3d', '1019_MR008_2Reg.c3d']
-    corresponding_files['1019_MR008_1Reg02.c3d'] = 'exported001'
-    corresponding_files['1019_MR008_FBIC.c3d'] = 'exported004'
-    corresponding_files['1019_MR008_FBPO.c3d'] = 'exported005'
-    corresponding_files['1019_MR008_2FB.c3d'] = 'exported006'
-    corresponding_files['1019_MR008_2Reg.c3d'] = 'exported007'
+    triallist['1019_MR008'] = ['1019_MR008_230511_1Reg02.c3d', '1019_MR008_230511_FBIC.c3d', '1019_MR008_230511_FBPO02.c3d', '1019_MR008_230511_2FB.c3d', '1019_MR008_230511_2Reg.c3d']
+    corresponding_files['1019_MR008_230511_1Reg02.c3d'] = 'exported001'
+    corresponding_files['1019_MR008_230511_FBIC.c3d'] = 'exported004'
+    corresponding_files['1019_MR008_230511_FBPO02.c3d'] = 'exported005'
+    corresponding_files['1019_MR008_230511_2FB.c3d'] = 'exported006'
+    corresponding_files['1019_MR008_230511_2Reg.c3d'] = 'exported007'
     
     # 1019_pp09
-    triallist['1019_MR009'] = ['1019_MR009_1Reg.c3d', '1019_MR009_FBIC.c3d', '1019_MR009_FBPO.c3d', '1019_MR009_2FB.c3d', '1019_MR009_2Reg.c3d']
-    corresponding_files['1019_MR009_1Reg.c3d'] = 'exported000'
-    corresponding_files['1019_MR009_FBIC.c3d'] = 'exported002'
-    corresponding_files['1019_MR009_FBPO.c3d'] = 'exported001'
-    corresponding_files['1019_MR009_2FB.c3d'] = 'exported003'
-    corresponding_files['1019_MR009_2Reg.c3d'] = 'exported004'
+    triallist['1019_MR009'] = ['1019_MR009_2306151Reg.c3d', '1019_MR009_230615FBIC.c3d', '1019_MR009_230615FBPO.c3d', '1019_MR009_2306152FB.c3d', '1019_MR009_2306152Reg.c3d']
+    corresponding_files['1019_MR009_2306151Reg.c3d'] = 'exported000'
+    corresponding_files['1019_MR009_230615FBIC.c3d'] = 'exported002'
+    corresponding_files['1019_MR009_230615FBPO.c3d'] = 'exported001'
+    corresponding_files['1019_MR009_2306152FB.c3d'] = 'exported003'
+    corresponding_files['1019_MR009_2306152Reg.c3d'] = 'exported004'
     
     # 1019_pp10
-    triallist['1019_MR010'] = ['1019_MR010_1Reg.c3d', '1019_MR010_FBIC.c3d', '1019_MR010_FBPO.c3d', '1019_MR010_2FB.c3d', '1019_MR010_2Reg.c3d']
-    corresponding_files['1019_MR010_1Reg.c3d'] = 'exported000'
-    corresponding_files['1019_MR010_FBIC.c3d'] = 'exported001'
-    corresponding_files['1019_MR010_FBPO.c3d'] = 'exported002'
-    corresponding_files['1019_MR010_2FB.c3d'] = 'exported003'
-    corresponding_files['1019_MR010_2Reg.c3d'] = 'exported004'
+    triallist['1019_MR010'] = ['1019_MR010_230711_1Reg.c3d', '1019_MR010_230711_FBIC.c3d', '1019_MR010_230711_FBPO.c3d', '1019_MR010_230711_2FB.c3d', '1019_MR010_230711_2Reg.c3d']
+    corresponding_files['1019_MR010_230711_1Reg.c3d'] = 'exported000'
+    corresponding_files['1019_MR010_230711_FBIC.c3d'] = 'exported001'
+    corresponding_files['1019_MR010_230711_FBPO.c3d'] = 'exported002'
+    corresponding_files['1019_MR010_230711_2FB.c3d'] = 'exported003'
+    corresponding_files['1019_MR010_230711_2Reg.c3d'] = 'exported004'
     
     # 1019_pp11
-    triallist['1019_MR011'] = ['1019_MR011_1Reg.c3d', '1019_MR011_FBIC.c3d', '1019_MR011_FBPO.c3d', '1019_MR011_2FB.c3d', '1019_MR011_2Reg.c3d']
-    corresponding_files['1019_MR011_1Reg.c3d'] = 'exported000'
-    corresponding_files['1019_MR011_FBIC.c3d'] = 'exported002'
-    corresponding_files['1019_MR011_FBPO.c3d'] = 'exported001'
-    corresponding_files['1019_MR011_2FB.c3d'] = 'exported003'
-    corresponding_files['1019_MR011_2Reg.c3d'] = 'exported004'
+    triallist['1019_MR011'] = ['1019_MR011_230717_1Reg.c3d', '1019_MR011_230717_FBIC.c3d', '1019_MR011_230717_FBPO.c3d', '1019_MR011_230717_2FB.c3d', '1019_MR011_230717_2Reg.c3d']
+    corresponding_files['1019_MR011_230717_1Reg.c3d'] = 'exported000'
+    corresponding_files['1019_MR011_230717_FBIC.c3d'] = 'exported002'
+    corresponding_files['1019_MR011_230717_FBPO.c3d'] = 'exported001'
+    corresponding_files['1019_MR011_230717_2FB.c3d'] = 'exported003'
+    corresponding_files['1019_MR011_230717_2Reg.c3d'] = 'exported004'
     
     # 1019_pp12
-    triallist['1019_MR012'] = ['1019_MR012_1Reg.c3d', '1019_MR012_FBIC.c3d', '1019_MR012_FBPO.c3d', '1019_MR012_2FB.c3d', '1019_MR012_2Reg.c3d']
-    corresponding_files['1019_MR012_1Reg.c3d'] = 'exported000'
-    corresponding_files['1019_MR012_FBIC.c3d'] = 'exported001'
-    corresponding_files['1019_MR012_FBPO.c3d'] = 'exported002'
-    corresponding_files['1019_MR012_2FB.c3d'] = 'exported003'
-    corresponding_files['1019_MR012_2Reg.c3d'] = 'exported004'
+    triallist['1019_MR012'] = ['1019_MR012_230726_1Reg.c3d', '1019_MR012_230726_FBIC.c3d', '1019_MR012_230726_FBPO.c3d', '1019_MR012_230726_2FB.c3d', '1019_MR012_230726_2Reg.c3d']
+    corresponding_files['1019_MR012_230726_1Reg.c3d'] = 'exported000'
+    corresponding_files['1019_MR012_230726_FBIC.c3d'] = 'exported001'
+    corresponding_files['1019_MR012_230726_FBPO.c3d'] = 'exported002'
+    corresponding_files['1019_MR012_230726_2FB.c3d'] = 'exported003'
+    corresponding_files['1019_MR012_230726_2Reg.c3d'] = 'exported004'
         
     return corresponding_files, triallist
 
@@ -251,16 +356,40 @@ def define_filepaths(datafolder, corresponding_files):
 
 
 
-def import_vicondata(pathsvicon):
-    vicon = dict()
-    vicon_gait_events = dict()
-    vicon_spatiotemporals = dict()
-    analogdata = dict()
+def define_filepaths_healthy(datafolder):
+    
+    pathsvicon = dict()
+    
+    for root, dirs, files in os.walk(datafolder):
+        for file in files:
+            if ('900_V_pp01' in file):
+                if ('SP01') in file:
+                    pathsvicon[file] = (os.path.normpath(os.path.join(root,file)))
+                    pathsvicon[file] = pathsvicon[file].replace("\\", "/")
+            else:
+                if ('SP' in file):
+                    pathsvicon[file] = (os.path.normpath(os.path.join(root,file)))
+                    pathsvicon[file] = pathsvicon[file].replace("\\", "/")
+    
+    return pathsvicon
+
+
+
+def import_vicondata(pathsvicon, vicon, vicon_gait_events, vicon_spatiotemporals, analogdata):
+    # vicon = dict()
+    # vicon_gait_events = dict()
+    # vicon_spatiotemporals = dict()
+    # analogdata = dict()
     for trial in pathsvicon:
         try:
             
             print('Analyzing vicon data of trial: ', trial)
             vicon[trial], fs_markerdata, analogdata[trial], fs_analogdata = readmarkerdata(pathsvicon[trial], analogdata=True)
+            v = dict()
+            for marker in vicon[trial]:
+                if ':' in marker:
+                    v[marker[marker.index(':')+1:]] = vicon[trial][marker]
+            vicon[trial].update(v)
             # Only analyze last 120 seconds of trial
             for marker in vicon[trial]:
                 vicon[trial][marker] = vicon[trial][marker][int(-120*fs_markerdata):,:]
@@ -626,6 +755,11 @@ def bland_altman_plot(data1, data2, *args, **kwargs):
     ub_string = '+ 1.96*SD: ' + round(md + 1.96*sd, 2).astype(str)
     lb_string = '- 1.96*SD: ' + round(md - 1.96*sd, 2).astype(str)
     
+    print(md_string)
+    print(lb_string)
+    print(ub_string)
+    print (sd)
+    
     # Check for inputname in **kwargs items
     dataType = str()
     unit = str()
@@ -638,7 +772,7 @@ def bland_altman_plot(data1, data2, *args, **kwargs):
         if key == 'alpha':
             alpha = value
     
-    fig = plt.subplots()
+    fig = plt.subplots(figsize=(10,8))
     plt.title('Bland-Altman analysis, ' + dataType, fontsize=20)
     
     plt.scatter(mean, diff, edgecolor = 'none', facecolor='black', alpha=alpha, marker = 'o') # SMK green: '#004D43'
