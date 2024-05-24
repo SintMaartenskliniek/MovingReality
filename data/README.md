@@ -13,9 +13,8 @@ The data folder has the following structure:
 			2FB: Feedback on both initial contact angle and push off force<br>
 			2Reg: Second trial regular walking<br>
 	- Xsens (folder with IMU sensordata)
+ 		- corresponding_files.txt: describing which xsens exported folders correspond to which trial and vicon .c3d files 
 		- exported###
-
-    		The analysis scripts include a section that correspond the number of the 'exported' folder 		with the trials described above.
 			- .txt file per sensor.
      				filenames have the following configuration: ***AwindaMasterstationID**_ **trialnumber**_ **SensorID**.txt*
 			- sensorspec.json file
