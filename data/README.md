@@ -4,7 +4,8 @@ The data folder has the following structure:
 - 1019_pp## (folder for participant based on study ID)
 	- Vicon (folder with vicon, gold standard, data)<br>
 		- .c3d file for each trial.
-    			Trialnames have te following configuration: *1019_MR**studyIDnumber**_**trialtype**.c3d*<br>
+
+    		Trialnames have te following configuration: *1019_MR**studyIDnumber**_**trialtype**.c3d*<br>
 		  trialtypes: <br>
 			1Reg: First trial regular walking<br>
 			FBIC: Feedback on initial contact angle<br>
@@ -13,6 +14,8 @@ The data folder has the following structure:
 			2Reg: Second trial regular walking<br>
 	- Xsens (folder with IMU sensordata)
 		- exported###
+
+    		The analysis scripts include a section that correspond the number of the 'exported' folder 		with the trials described above.
 			- .txt file per sensor.
      				filenames have the following configuration: ***AwindaMasterstationID**_ **trialnumber**_ **SensorID**.txt*
 			- sensorspec.json file
